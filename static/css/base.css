@@ -1,0 +1,41 @@
+:root
+{
+    --font-base : "base-font"
+}
+
+@font-face 
+{
+  font-family: 'base-font';
+  src: url('/fonts/regular.ttf');
+}
+
+*
+{
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+html
+{
+    scroll-behavior: smooth;
+    font-family: var(--font-base);
+}
+
+@media (prefers-reduced-motion: reduce) 
+{
+    * 
+    {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      animation-delay: 0.01ms !important;
+    }
+}
+
+body
+{
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
