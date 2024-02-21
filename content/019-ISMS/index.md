@@ -12,7 +12,7 @@ published : true
 ## What is an ISMS?
 An Information Security Management System (or ISMS) comprises a structured set of policies and procedures aimed at the systematic management of an organization's sensitive data. Its primary objective is to mitigate risks and guarantee uninterrupted business operations by proactively minimizing the consequences of a security breach.
 
-![An ISMS contains procedures and data [medium]](/static/post/019/logo.png)
+![An ISMS contains procedures and data [medium]](/content/019-isms/images/logo.png)
 
 ## Compliance
 
@@ -42,7 +42,7 @@ Depending on the scope, size, contributors and your company's goal some solution
 A simple folder structure, possible shared over the network might be a fast and quick solution.
 Especially so when your company already has such an existing system in place.
 
-![An example filestructure on a shared network drive [small]](/static/post/019/filestructure-1.png)
+![An example filestructure on a shared network drive [small]](/content/019-isms/images/filestructure-1.png)
 
 ### Google Drive
 
@@ -52,12 +52,12 @@ Similar to a folder structure on your OS, Google Drive offers the ability to cre
 
 With most companies embracing a hybrid working environment, communication and collaboration platforms such as Microsoft Teams are commonplace in the modern working environment. Microsoft Teams allows for the creation of channels and teams, with file structures attached. 
 
-![Microsoft Teams [small]](/static/post/019/logo-teams.png)
+![Microsoft Teams [small]](/content/019-isms/images/logo-teams.png)
 
 ### Atlassian Confluence
 
 Companies that make use of the Atlassian software stack, might prefer Confluence to store their documentation in its wiki-like environment.
-![Confluence [small]](/static/post/019/confluence.png)
+![Confluence [small]](/content/019-isms/images/confluence.png)
 
 
 ### Compliance software

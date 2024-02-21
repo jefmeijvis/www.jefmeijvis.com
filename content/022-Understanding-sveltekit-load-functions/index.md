@@ -16,7 +16,7 @@ But before these Svelte files get rendered, data can be provided by load functio
 ## Basic usage
 In our project's file structure, a *+page.svelte* file can have an associated *+page.js* file next to it. 
 
-![Sveltekit folder structure [small]](/static/post/022/folder-structure.png)
+![Sveltekit folder structure [small]](/content/022-understanding-sveltekit-load-functions/images/folder-structure.png)
 
 
 Imagine we want a webpage that uses data from the load function to show a title. 
@@ -84,7 +84,7 @@ In such case, our *+page.svelte* file would look identical as above.
 
 When we design our page to make use of a slug, we want to access that slug data in the load function as well. 
 
-![Sveltekit folder structure with a slug [small]](/static/post/022/slug.png)
+![Sveltekit folder structure with a slug [small]](/content/022-understanding-sveltekit-load-functions/images/slug.png)
 
 
 ```js

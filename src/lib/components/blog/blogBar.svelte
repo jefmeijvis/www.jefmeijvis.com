@@ -1,8 +1,12 @@
 <script lang="ts">
+    import type { ChangeEventHandler } from "svelte/elements";
     import { theme } from "../../../stores";
 
     export let toggleView : Function;
     export let title : string = "Articles";
+    export let updateSearchString : ChangeEventHandler<HTMLElement>;
+
+
 </script>
 
 <div class="container">
@@ -15,7 +19,7 @@
     <div class="right">
 
         <div class="search">
-            <input placeholder="Search" type="text">
+            <input on:keyup={updateSearchString} placeholder="Search" type="text">
             <img style="filter:{$theme == 'light' ? 'none' : 'invert()'}" class="search-image" alt="magnifying glass" src="/icons/search.png"/>
         </div>
 

@@ -13,7 +13,7 @@ published : true
 
 The Open Worldwide Application Security Project®, or [OWASP](https://owasp.org/) for short, is a nonprofit foundation that works to improving the global landscape of cyber security. The foundation hosts many (285 at the time of writing) [projects](https://owasp.org/projects/) related to cyber security, al of which are community-led and open-source. 
 
-![OWASP foundation [small]](/static/post/013/logo.png)
+![OWASP foundation [small]](/content/013-owasp-samm/images/logo.png)
 
 The foundation provides security resources, training and a vibrant community around security.
 OWASP hosts [local chapters](https://owasp.org/chapters/) which are free and open for anyone to attend.
@@ -30,12 +30,12 @@ A business function is a group of activities that are relevant to software devel
 Each business function has 3 security practices, which are divided into two streams.
 Finally, for every security practice there are 3 defined maturity levels. 
 
-![SAMM Structure © OWASP](/static/post/013/structure.png)
+![SAMM Structure © OWASP](/content/013-owasp-samm/images/structure.png)
 
 The image below gives a clear overview of all the different security practices that are defined in the SAMM model. 
 [View the original model image](https://owaspsamm.org/about/)
 
-![SAMM Model © OWASP](/static/post/013/model.png)
+![SAMM Model © OWASP](//content/013-owasp-samm/images/model.png)
 
 All the different security practices can be viewed at [https://owaspsamm.org/model/](the SAMM model overview)
 

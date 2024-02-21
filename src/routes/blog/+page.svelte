@@ -7,7 +7,14 @@
 
     let days = getDaysSince('10/16/2021');
     let daysBetween = Math.floor(days / data.blogposts.length);
-    let listview : boolean = true;
+    let listview : boolean = false;
+    let searchString : string;
+
+    function changeSearchString(event : Event)
+    {
+        //@ts-ignore
+        searchString = event.target.value as String;
+    }
 
     function toggleListView()
     {
@@ -22,5 +29,5 @@
     So far I have written {data.blogposts.length} posts. 
     That means that on average, I write a post every {daysBetween} days! 
 </p>
-<BlogBar toggleView={toggleListView}></BlogBar>
-<BlogContainer viewToggle={listview} posts={data.blogposts}></BlogContainer>
+<BlogBar updateSearchString={changeSearchString} toggleView={toggleListView}></BlogBar>
+<BlogContainer searchString={searchString} viewToggle={listview} posts={data.blogposts}></BlogContainer>

@@ -11,7 +11,7 @@ published : true
 
 ## Azure Application Insights
 Application Insights is an Azure service that allows developers to monitor their applications in a centralized way, all the way from development through production. With the available data, software teams are able to proactively understand how their application is being used. In case of an incident, developers are able to reactively review metrics, logs and traces to find the root cause. 
-![Azure Application Insights logo[small]](/static/post/007/logo.png)
+![Azure Application Insights logo[small]](/content/007-azure-application-insights/images/logo.png)
 
 It is an essential tool to develop distributed applications and system at scale.
 
@@ -19,7 +19,7 @@ It is an essential tool to develop distributed applications and system at scale.
 When software teams or organizations manage multiple applications, it might be useful to collect all this data in a single place. Only by doing so we're able to see the entire picture of what's happening across all these systems.
 Doing so requires that logs, traces and metrics are generated in a standardized data format.
 
-![OpenTelemetry Logo [medium]](/static/post/007/opentelemetry.png)
+![OpenTelemetry Logo [medium]](/content/007-azure-application-insights/images/opentelemetry.png)
 
 This is where [OpenTelemetry](https://opentelemetry.io/) comes in. By standardizing the format in which data is collected, software teams can start using different products together without being vendor dependant. 
 
@@ -28,11 +28,11 @@ This is where [OpenTelemetry](https://opentelemetry.io/) comes in. By standardiz
 ### Create an Application Insights instance
 Go to the [Azure Portal](https://www.portal.azure.com) and create a new Application Insights resource.
 
-![Creating a new instance through the Azure Portal](/static/post/007/portal1.png)
+![Creating a new instance through the Azure Portal](/content/007-azure-application-insights/images/portal1.png)
 
 After creating the instance, we can go to the Overview tab and copy the connection string
 
-![Copying the connection string from the portal. Do not worry, the credentials shown here are not real](/static/post/007/portal2.png)
+![Copying the connection string from the portal. Do not worry, the credentials shown here are not real](/content/007-azure-application-insights/images/portal2.png)
 
 This connection string is always needed to connect to our instance of Application Insights.
 
@@ -174,13 +174,13 @@ While it is beyond the scope of this article, you can visualize the collected da
 Azure offers a dashboard service on its own.
 This service can also be created through the Azure Portal.
 
-![Azure Dashboard](/static/post/007/portal4.png)
+![Azure Dashboard](/content/007-azure-application-insights/images/portal4.png)
 
 ### 3rd party dashboards
 
 But because we collected our data in a vendor independent format, we can integrate Application Insights with many 3rd party dashboard tools, such as [Grafana](https://grafana.com/)
 
-![Many 3rd party options, such as Grafana, exist](/static/post/007/grafana.png)
+![Many 3rd party options, such as Grafana, exist](/content/007-azure-application-insights/images/grafana.png)
 
 ## Summary
 Application Insights provides various ways to integrate data logging in our existing or new applications.

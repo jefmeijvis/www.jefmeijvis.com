@@ -17,7 +17,7 @@ published : true
 
 ChatGPT is a powerful chatbot developed by [OpenAI](https://openai.com/) that can generate human-like text. It is based upon the [GPT-3 family](https://en.wikipedia.org/wiki/GPT-3) of large language models. As a software developer, you can use ChatGPT to automate repetitive tasks, generate code, and even help with documentation. In this blog post, we'll explore some of the ways ChatGPT can help you as a developer, and how you can get started using it. The practical examples shown here will make use of C# as its programming language. 
 
-![OpenAI logo [small]](/static/post/008/logo.png)
+![OpenAI logo [small]](/content/008-chatgpt-as-a-developer/images/logo.png)
 
 ## Accessing ChatGPT
 The browser chat interface of ChatGPT can be accessed via [chat.openai.com](https://chat.openai.com/).
@@ -26,7 +26,7 @@ Authorization can be done via a Google or Microsoft account. After logging in yo
 For example, the query *Write a method in C# that calculates the median price out of a list of products.* returns the following result:
 
 
-![Interacting with the chatbot via its web interface](/static/post/008/web-1.png)
+![Interacting with the chatbot via its web interface](/content/008-chatgpt-as-a-developer/images/web-1.png)
 
 
 ## Generating code
@@ -111,7 +111,7 @@ function linkFriends(user: User) {
 Lets say we encountered the above code in a wild codebase, and we could not figure out what it exactly does.
 Let's ask ChatGPT:
 
-![Explaining a piece of code](/static/post/008/web-2.png)
+![Explaining a piece of code](/content/008-chatgpt-as-a-developer/images/web-2.png)
 
 ## Unit tests
 Lets imagine the follwing setup.

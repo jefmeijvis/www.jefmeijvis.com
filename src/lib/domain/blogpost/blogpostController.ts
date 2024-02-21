@@ -15,7 +15,8 @@ export function getBlogposts() : Blogpost[]
         let parsed = fm(file);
         let post = {} as Blogpost;
         post.title = dir.slice(4);
-        post.path = dir
+        post.markdown = parsed.body;
+        post.path = dir;
         //@ts-ignore
         post.id = Number.parseInt(dir.slice(0,3));
         //@ts-ignore

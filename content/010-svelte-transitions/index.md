@@ -36,7 +36,7 @@ We can add the transition directive to native dom elements, such as a paragraph 
 {/if}
 ```
 
-![The paragraph fades in an out when the DOM elements get added or removed [medium]](/static/post/010/transition-example-1.gif)
+![The paragraph fades in an out when the DOM elements get added or removed [medium]](/content/010-svelte-transitions/images/transition-example-1.gif)
 
 ### Out-of-the-box transitions
 
@@ -49,15 +49,15 @@ At the time of writing, Svelte comes with a couple of transitions out-of-the-box
 - draw
 - crossfade
 
-![Fade [small]](/static/post/010/transition-example-1.gif)
-![Blur [small]](/static/post/010/transition-example-blur.gif)
-![Fly [small]](/static/post/010/transition-example-fly.gif)
-![Slide [small]](/static/post/010/transition-example-slide.gif)
-![Scale [small]](/static/post/010/transition-example-scale.gif)
+![Fade [small]](/content/010-svelte-transitions/images/transition-example-1.gif)
+![Blur [small]](/content/010-svelte-transitions/images/transition-example-blur.gif)
+![Fly [small]](/content/010-svelte-transitions/images/transition-example-fly.gif)
+![Slide [small]](/content/010-svelte-transitions/images/transition-example-slide.gif)
+![Scale [small]](/content/010-svelte-transitions/images/transition-example-scale.gif)
 
 The draw transition is a special one, as it can only be applied to an SVG path.
 The following inline SVG drawing of a cross gets drawn by the transition
-![Draw [small]](/static/post/010/transition-example-draw.gif)
+![Draw [small]](/content/010-svelte-transitions/images/transition-example-draw.gif)
 ```svelte
 // Animate the drawing of the SVG path using the 'Draw' transition
 <svg viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg">
@@ -151,7 +151,7 @@ css: (t,u) =>
 ```
 The function above would generate a CSS animation that changes the font size from 0rem to 1rem when the element gets created, and from 1rem to 0rem when destroying the object. This example only changes the font-size, but as many css properties as needed can be modified during a transition. 
 
-![Custom font-size transition [small]](/static/post/010/transition-example-custom.gif)
+![Custom font-size transition [small]](/content/010-svelte-transitions/images/transition-example-custom.gif)
 
 
 ## Layout transitions
@@ -180,7 +180,7 @@ This will prevent popping in when the original div disappears from the DOM.
 
 I've set up a live demo at [Post 10 demo](/demo/010/)
 When using the code as shown above, we get the following result:
-![Layout fly transition [medium]](/static/post/010/transition-example-demo-1.gif)
+![Layout fly transition [medium]](/content/010-svelte-transitions/images/transition-example-demo-1.gif)
 This works great! All the content in the slot tag flies in and out when a new page gets loaded.
 
 ## Directional transition
@@ -259,7 +259,7 @@ We can use this direction in the same layout file to generate the options object
 
 And by doing so, we reverse the transition direction going back up the url tree.
 You can view the result live at the [Post 10 demo page.](/demo/010/)
-![Layout fly transition [medium]](/static/post/010/transition-example-demo-2.webp)
+![Layout fly transition [medium]](/content/010-svelte-transitions/images/transition-example-demo-2.webp)
 
 
 
@@ -343,7 +343,7 @@ The sound is played by the afterNavigate hook, and a custom transition scales an
 </style>
 ```
 
-![I have peaked as a web developer](/static/post/010/batman.webp)
+![I have peaked as a web developer](/content/010-svelte-transitions/images/batman.webp)
 
 ## Accessibility
 As mentioned in [this great blogpost by Geoff Rich](https://geoffrich.net/posts/accessible-svelte-transitions/), we need to make sure that we keep the accessibility of our webpage in mind.

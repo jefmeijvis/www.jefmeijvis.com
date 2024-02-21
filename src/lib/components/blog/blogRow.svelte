@@ -56,7 +56,7 @@
     {
         writing-mode: tb-rl;
         transform: rotate(-180deg);
-        font-size: calc(10% * 13);
+        font-size: calc(10% * 16);
         opacity: 50%;
         text-align: right;
         width : 10%;
@@ -64,6 +64,7 @@
     .top
     {
         display: flex;
+        width : 30%;
     }
 
     h1
@@ -76,10 +77,11 @@
     img
     {
         transition: all ease .2s;
-        width : 100%;
-        height:100%;
-        object-fit: cover;
         opacity: 80%;
+        width: 100%;
+        height: 100%;
+        margin:auto;
+        object-fit: cover;
     }
 
     img:hover
@@ -88,36 +90,33 @@
     }
     .image
     {
-        width : 100%;
-        overflow: hidden;
         transition: all ease .2s;
-        outline: 1px var(--color-text-subtle) solid; 
+        outline: 1px var(--color-text-subtle) solid;
+        width : 90%;
     }
 
     .body
     {
-        width : calc(100% - 10%);
-        margin-left: 10%;
-        padding-top: .5rem;
+        padding-left: 1rem;
+        width : 70%;
     }
 
     .big-button
     {
         background: none;
         border: none;
-        width : 30%;
+        width : 100%;
         cursor:pointer;
         margin-bottom: 4rem;
         color:var(--color-text);
+        display: flex;
     }
 
     @media (max-aspect-ratio: 1/1) 
     {
         .big-button
         {
-            width: 90%;
-            margin:auto;
-            margin-bottom: 3rem;
+            background-color: red;
         }
     }
 </style>

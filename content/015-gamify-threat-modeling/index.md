@@ -16,23 +16,23 @@ It hosts nearly 2000 visitors and 120 speakers from all around the world.
 With over 150 sessions and multiple workshops spread across 3 days, it's always a pleasure to attend.  
 
 
-![Techorama logo : 2023 Jungle Edition [medium]](/static/post/015/techorama.svg)
+![Techorama logo : 2023 Jungle Edition [medium]](/content/015-gamify-threat-modeling/images/techorama.svg)
 
 Each year the conference is themed, and this edition was no different. 
 A beautiful jungle theme was present throughout the entire venue.
 
 
 
-![Venue in jungle theme (@TechoramaBE via Twitter) [medium]](/static/post/015/techorama-overview.jpg)
+![Venue in jungle theme (@TechoramaBE via Twitter) [medium]](/content/015-gamify-threat-modeling/images/techorama-overview.jpg)
 
-![dotNETlab stand [medium]](/static/post/015/techorama-dnl-stand.JPEG)
+![dotNETlab stand [medium]](/content/015-gamify-threat-modeling/images/techorama-dnl-stand.JPEG)
 
 
 
 ## Cornucopia
 
 This year I had the opportunity to give a talk about [OWASP Cornucopia](/blog/014-OWASP-cornucopia). The talk itself was a short 20 minutes lightning talk discussing the concept of gamification of threat modeling. 
-![Gamified threat modeling with OWASP Cornucopia [medium]](/static/post/015/talk.jpeg)
+![Gamified threat modeling with OWASP Cornucopia [medium]](/content/015-gamify-threat-modeling/images/talk.jpeg)
 
 See you again next year!
 

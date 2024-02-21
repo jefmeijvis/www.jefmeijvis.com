@@ -12,7 +12,7 @@ published : true
 ## Getting started with HTMX
 All aboard the hypetrain because a new frontend framework just dropped!
 
-![HTMX Logo [medium]](/static/post/018/logo.png)
+![HTMX Logo [medium]](/content/018-getting-started-with-htmx/images/logo.png)
 
 ## HTMX?
 

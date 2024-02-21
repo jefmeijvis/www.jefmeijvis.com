@@ -16,7 +16,7 @@ They allow you to schedule a serverless function to run on a regular basis.
 This allows you to run tasks on a fixed schedule, defined by a cron expression.
 For this example I'll be using a cron job to do a daily deploy of my blog.
 
-![Vercel announcement on Twitter [medium]](/static/post/012/tweet.png)
+![Vercel announcement on Twitter [medium]](/content/012-vercel-cron-jobs/images/tweet.png)
 
 ## Setting up the cron job
 For this example I'll be using Svelte.
@@ -73,7 +73,7 @@ A simple GET request to this endpoint will trigger the cron job.
 ### Manually invoking the cron job from the Vercel dashboard
 When deployed to the production environment, we can manually invoke the cron job from the Vercel dashboard.
 
-![Each project now has a tab with cron job information](/static/post/012/dashboard.png)
+![Each project now has a tab with cron job information](/content/012-vercel-cron-jobs/images/dashboard.png)
 
 We can access the cron job information through the cron tab on each project.
 It gives us an overview of the available cron jobs, as well as the possibility to manually invoke them.
