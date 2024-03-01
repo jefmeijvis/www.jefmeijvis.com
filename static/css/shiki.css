@@ -1,0 +1,8 @@
+/* Styling for the code syntax highlighter Shiki*/
+
+.shiki
+{
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border: 1px rgb(127,127,127) solid;
+}

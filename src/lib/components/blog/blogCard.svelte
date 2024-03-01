@@ -31,7 +31,7 @@
             <span>//</span>
             <span class="category">{Text.capitalize(post.category)}</span>
             <span>//</span>
-            <span class="viewcount">{post.views} views</span>
+            <span class="viewcount">{Text.formatViewCount(post.views)} views</span>
         </p>
         <p class="description">{post.description}</p>
     </div>

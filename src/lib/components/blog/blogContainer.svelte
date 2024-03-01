@@ -65,7 +65,7 @@
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content:space-between;
         margin-top: 1rem;
     }
 

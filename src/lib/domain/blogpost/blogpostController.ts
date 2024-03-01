@@ -1,8 +1,11 @@
 import {type Blogpost} from "./blogpost";
 import fs from "fs"
 import fm from 'front-matter';
+import { supabase } from "$lib/infrastructure/supabase";
+import { LocalCache, LocalCacheSync } from "$lib/utils/cache";
+import { delay } from "$lib/utils/async";
 
-export function getBlogposts() : Blogpost[]
+export async function getBlogposts() : Promise<Blogpost[]>
 {
     let result = new Array<Blogpost>();
     let dirs = getDirectories('./content');
@@ -25,7 +28,7 @@ export function getBlogposts() : Blogpost[]
         post.description = parsed.attributes.description;
         //@ts-ignore
         post.category = parsed.attributes.category;
-        post.views = Math.round(Math.random() * 1000);
+        post.views = await LocalCache(()=>getViews('/blog/' + dir),3600,dir);
         result.push(post);
     }
 
@@ -43,4 +46,10 @@ function getDirectories(path : string) : string[]
     return fs.readdirSync(path,{ withFileTypes: true })
     .filter(x => x.isDirectory())
     .map(dirent => dirent.name);
+}
+
+async function getViews(page : string) : Promise<number>
+{
+    let response = await supabase.from("jefmeijvis_visits").select('*',{count : "exact"}).ilike('page','%' + page + '%');
+    return response.count ?? -1
 }

@@ -11,4 +11,10 @@ export class Text
     {
         return input.slice(0,1).toUpperCase() + input.slice(1,input.length)
     }
+
+    public static formatViewCount(input : number) : string
+    {
+        // StackOverflow voodoo magic via: https://stackoverflow.com/questions/2901102/how-to-format-a-number-with-commas-as-thousands-separators
+        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
 }

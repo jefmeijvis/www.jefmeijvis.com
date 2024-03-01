@@ -1,6 +1,7 @@
 <script lang="ts">
     import BlogBar from "$lib/components/blog/blogBar.svelte";
     import BlogContainer from "$lib/components/blog/blogContainer.svelte"
+    import Introduction from "$lib/components/introduction.svelte";
     import { sortByViewsDescending } from "$lib/domain/blogpost/sorting.js";
     export let data;
 
@@ -18,7 +19,7 @@
         listview = !listview;
     }
 </script>
-
+<Introduction></Introduction>
 <h1>Most viewed Articles</h1>
 <BlogContainer sorting={sortByViewsDescending} limit={3} posts={data.blogposts}></BlogContainer>
 <BlogBar updateSearchString={changeSearchString} title="Recent articles" toggleView={toggleListView}></BlogBar>

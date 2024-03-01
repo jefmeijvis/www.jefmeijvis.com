@@ -3,6 +3,6 @@ import { getBlogposts } from "$lib/domain/blogpost/blogpostController";
 export async function load()
 {
     return {
-        blogposts : getBlogposts(),
+        blogposts : await getBlogposts(),
     }
 }

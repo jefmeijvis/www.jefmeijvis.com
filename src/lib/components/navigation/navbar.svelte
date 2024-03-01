@@ -13,7 +13,6 @@
 
     let links : Link[] = [];
     AddLink(links,"RSS","/rss");
-    AddLink(links,"Resources","/resources");
     AddLink(links,"About","/about");
     AddLink(links,"Blog","/blog");
     AddLink(links,"Home","/");
