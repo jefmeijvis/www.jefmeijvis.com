@@ -36,7 +36,7 @@
 
 {#if searchString}
     <p>
-        <i>Searching for {searchString}</i>
+        <i>Searching for {searchString}:</i>
     </p>
 {/if}
 
@@ -63,17 +63,25 @@
     div
     {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: wrap;
         justify-content:space-between;
         margin-top: 1rem;
     }
 
-    @media (min-aspect-ratio: 1/1) 
+    @media (max-aspect-ratio: 1/1) 
     {
         div
         {
-            flex-direction: row;
+            flex-direction: column;
         }
+
+        p
+        {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+
     }
 </style>

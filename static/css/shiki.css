@@ -3,6 +3,28 @@
 .shiki
 {
     padding: .5rem;
-    margin-bottom: 1rem;
-    border: 1px rgb(127,127,127) solid;
+}
+
+.shiki .line
+{
+    word-wrap: normal;
+    display: inline-block;
+}
+
+code 
+{
+    counter-reset: step;
+    counter-increment: step 0;
+    font-size: 1.1rem;
+}
+  
+code .line::before 
+{
+    content: counter(step);
+    counter-increment: step;
+    width: 1rem;
+    margin-right: 1.5rem;
+    display: inline-block;
+    text-align: right;
+    color: rgba(115,138,148,.4)
 }

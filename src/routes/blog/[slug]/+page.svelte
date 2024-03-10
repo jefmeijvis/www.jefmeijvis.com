@@ -2,6 +2,7 @@
     import { Text } from "$lib/utils/text";
     import SvelteMarkdown from 'svelte-markdown';
     import renderers from '$lib/components/markdown-renderers/renderers'
+    import { onMount } from "svelte";
 
 	export let data;
 </script>

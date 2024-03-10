@@ -38,3 +38,8 @@ body
   background-color: var(--color-background);
   color: var(--color-text);
 }
+
+p,code,a,li,ul,ol,blockquote
+{
+  font-size: 1.1rem;
+}
