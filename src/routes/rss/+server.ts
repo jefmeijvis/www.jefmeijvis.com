@@ -1,5 +1,6 @@
 import type { Blogpost } from "$lib/domain/blogpost/blogpost";
 import { getBlogposts } from "$lib/domain/blogpost/blogpostController";
+export const prerender = true
 
 // Header options
 const responseInit : ResponseInit =
@@ -30,10 +31,9 @@ let bodyStart = '<?xml version="1.0" encoding="UTF-8" ?>'
 let bodyEnd = '</channel>' + '</rss>';
 
 
-export async function GET({fetch,url,request} : any) 
+export async function GET() 
 {
   let blogposts : Blogpost[] = await getBlogposts();
-  let longDescription : boolean = url.searchParams.get('long') == 'true'
 
   let body : string = bodyStart;
   for(let i = 0 ; i < blogposts.length ; i++)
@@ -53,7 +53,7 @@ export async function GET({fetch,url,request} : any)
 
     // Description
     body += '<description>'
-    body += generateDescription(post,longDescription);
+    body += generateDescription(post);
     body += '</description>'
 
     // Guid
@@ -81,18 +81,9 @@ export async function GET({fetch,url,request} : any)
   return new Response(body,responseInit);
 }
 
-function generateDescription(post : Blogpost, longDescription : boolean)
+function generateDescription(post : Blogpost)
 {
   let desc : string =  post.description;
-
-  if(longDescription)
-  {
-    while(desc.length < 300)
-    {
-      desc += ' ' + post.description
-    }
-  }
-  
   return desc;
 }
 

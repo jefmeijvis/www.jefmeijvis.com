@@ -15,8 +15,6 @@ In this article we're going to create a simple chatbox, using Svelte. The design
 
 ![A chat windows created with Svelte components [medium]](/content/005-creating-a-chat-component-with-svelte/images/demo.png)
 
-For a live demo you can visit [the demo page](/demo/005?ref=article)
-
 Use the 'Username' field to choose a username. It's value is taken as is, so when you pick a name, you will have that identity. This means it's possible to pick an existing user. Whenever you change the current user, the styling of the chatwindow will update, showing which messages are your own. Underneath there is space to type a message, and a button to send the message.
 
 ### Getting started

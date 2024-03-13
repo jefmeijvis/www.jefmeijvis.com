@@ -22,7 +22,7 @@
 	"type": "module",
 	"dependencies": {
 		"@supabase/supabase-js": "^2.39.8",
-		"@sveltejs/adapter-vercel": "^5.1.1",
+		"@sveltejs/adapter-static": "^3.0.1",
 		"@types/node": "^20.11.27",
 		"bufferutil": "^4.0.8",
 		"front-matter": "^4.0.2",
