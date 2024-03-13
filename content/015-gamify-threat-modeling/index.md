@@ -31,7 +31,7 @@ A beautiful jungle theme was present throughout the entire venue.
 
 ## Cornucopia
 
-This year I had the opportunity to give a talk about [OWASP Cornucopia](/blog/014-owasp-cornucopia). The talk itself was a short 20 minutes lightning talk discussing the concept of gamification of threat modeling. 
+This year I had the opportunity to give a talk about OWASP Cornucopia. The talk itself was a short 20 minutes lightning talk discussing the concept of gamification of threat modeling. 
 ![Gamified threat modeling with OWASP Cornucopia [medium]](images/talk.jpeg)
 
 See you again next year!
