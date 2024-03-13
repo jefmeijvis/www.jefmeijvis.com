@@ -24,8 +24,10 @@
 		"@supabase/supabase-js": "^2.39.8",
 		"@sveltejs/adapter-vercel": "^5.1.1",
 		"@types/node": "^20.11.27",
+		"bufferutil": "^4.0.8",
 		"front-matter": "^4.0.2",
 		"svelte-markdown": "^0.4.1",
+		"utf-8-validate": "^6.0.3",
 		"vite-plugin-restart": "^0.4.0",
 		"vite-plugin-static-copy": "^1.0.1"
 	}
