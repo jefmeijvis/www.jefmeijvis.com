@@ -159,7 +159,6 @@ This means that external information such as the viewcount is refreshed and rere
 ## Open source
 This entire website is open source, and can be viewed on [Github](https://github.com/jefmeijvis/www.jefmeijvis.com).
 If you see a spelling mistake, content error or just a bug in the website, please do let me know!
-You can [contact](/contact) me privately, create an issue or pull request on the repository.  
 
 ## Conclusion
 If you want to start blogging, you definitely do not need to create a blogging platform from scratch.

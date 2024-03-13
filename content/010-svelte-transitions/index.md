@@ -49,15 +49,15 @@ At the time of writing, Svelte comes with a couple of transitions out-of-the-box
 - draw
 - crossfade
 
-![Fade [small]](/content/010-svelte-transitions/images/transition-example-1.gif)
-![Blur [small]](/content/010-svelte-transitions/images/transition-example-blur.gif)
-![Fly [small]](/content/010-svelte-transitions/images/transition-example-fly.gif)
-![Slide [small]](/content/010-svelte-transitions/images/transition-example-slide.gif)
-![Scale [small]](/content/010-svelte-transitions/images/transition-example-scale.gif)
+![Fade [small]](images/transition-example-1.gif)
+![Blur [small]](images/transition-example-blur.gif)
+![Fly [small]](images/transition-example-fly.gif)
+![Slide [small]](images/transition-example-slide.gif)
+![Scale [small]](images/transition-example-scale.gif)
 
 The draw transition is a special one, as it can only be applied to an SVG path.
 The following inline SVG drawing of a cross gets drawn by the transition
-![Draw [small]](/content/010-svelte-transitions/images/transition-example-draw.gif)
+![Draw [small]](images/transition-example-draw.gif)
 ```svelte
 // Animate the drawing of the SVG path using the 'Draw' transition
 <svg viewBox="0 0 5 5" xmlns="http://www.w3.org/2000/svg">
