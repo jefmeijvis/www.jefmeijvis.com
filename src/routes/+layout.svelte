@@ -1,7 +1,10 @@
 <script lang="ts">
     import Background from "$lib/components/background.svelte";
+    import Footer from "$lib/components/footer.svelte";
     import Navbar from "$lib/components/navigation/navbar.svelte";
     import { theme } from "../stores";
+
+    export let data;
 </script>
 
 <svelte:head>
@@ -13,6 +16,7 @@
 <div class="page-container">
     <slot></slot>
 </div>
+<Footer blogposts={data.blogposts}></Footer>
 
 <style>
     .page-container

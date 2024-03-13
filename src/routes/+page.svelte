@@ -14,9 +14,9 @@
         searchString = event.target.value as String;
     }
 
-    function toggleListView()
+    function toggleListView(value : boolean)
     {
-        listview = !listview;
+        listview = value;
     }
 </script>
 <Introduction></Introduction>
@@ -24,9 +24,25 @@
 <BlogContainer sorting={sortByViewsDescending} limit={3} posts={data.blogposts}></BlogContainer>
 <BlogBar updateSearchString={changeSearchString} title="Recent articles" toggleView={toggleListView}></BlogBar>
 <BlogContainer searchString={searchString} limit={9} viewToggle={listview} posts={data.blogposts}></BlogContainer>
-<a href="/blog">View all</a>
+<p>
+    <a href="/blog">View all posts</a>
+</p>
 
 <style>
+    p
+    {
+        text-align: center;
+        width : 100%;
+    }   
+
+    a
+    {
+        text-decoration: none;
+        color:var(--color-text);
+        display: block;
+        border-radius: 1rem;
+    }
+
     @media (max-aspect-ratio: 1/1)
     {
         h1

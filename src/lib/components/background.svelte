@@ -11,7 +11,7 @@
 </script>
 
 <div class="background-effect">
-<p style="transform:{getTransform(y)};opacity:{$theme == 'dark' ? '10%' : '4%'}">
+<p style="transform:{getTransform(y)};opacity:{$theme == 'dark' ? '5%' : '6%'}">
    {keywords.join(' // ')}
 </p>
 </div>

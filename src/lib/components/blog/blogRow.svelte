@@ -116,7 +116,6 @@
     {
         .big-button
         {
-            background-color: red;
         }
     }
 </style>

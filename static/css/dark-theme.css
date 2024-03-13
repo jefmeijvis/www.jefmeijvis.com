@@ -1,6 +1,6 @@
 :root
 {
-    --color-background : black;
-    --color-text : white;
-    --color-text-subtle : rgb(49, 49, 49);
+    --color-background : rgb(21, 21, 21);
+    --color-text : rgb(239, 239, 239);
+    --color-text-subtle : rgb(52, 52, 52);
 }

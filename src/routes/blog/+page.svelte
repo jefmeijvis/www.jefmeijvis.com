@@ -16,9 +16,9 @@
         searchString = event.target.value as String;
     }
 
-    function toggleListView()
+    function toggleListView(value : boolean)
     {
-        listview = !listview;
+        listview = value;
     }
 </script>
 

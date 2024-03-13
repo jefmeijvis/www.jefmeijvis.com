@@ -46,7 +46,7 @@
         {#each visiblePosts as post,index}
             {#if filterPost(post,searchString)}
                 {#if increment()}
-                    {#if viewToggle && !mobile}
+                    {#if (viewToggle && !mobile)}
                         <BlogRow {index} {post}></BlogRow>
                     {:else}
                         <BlogCard {index} {post}></BlogCard>
