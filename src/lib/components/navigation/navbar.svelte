@@ -12,7 +12,7 @@
     let menuOpen : boolean = false;
 
     let links : Link[] = [];
-    AddLink(links,"RSS","/rss");
+    AddLink(links,"RSS","/rss.xml");
     AddLink(links,"About","/about");
     AddLink(links,"Blog","/blog");
     AddLink(links,"Home","/");
