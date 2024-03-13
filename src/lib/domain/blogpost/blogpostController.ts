@@ -2,8 +2,7 @@ import {type Blogpost} from "./blogpost";
 import fs from "fs"
 import fm from 'front-matter';
 import { supabase } from "$lib/infrastructure/supabase";
-import { LocalCache, LocalCacheSync } from "$lib/utils/cache";
-import { delay } from "$lib/utils/async";
+import { LocalCache } from "$lib/utils/cache";
 
 export async function getBlogposts() : Promise<Blogpost[]>
 {
