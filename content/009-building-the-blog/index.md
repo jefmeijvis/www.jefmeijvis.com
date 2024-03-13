@@ -14,7 +14,7 @@ published : true
 This blogging website has gone through quite a few iterations before I landed on what you currently see.
 I thought why not share the lessons learned, so others might benefit from this!
 
-![Blogging! [small]](/content/009-building-the-blog/images/logo.png)
+![Blogging! [small]](images/logo.png)
 
 ## Inspiration
 Before we continue, I would like to give credit where credit is due.
@@ -26,7 +26,7 @@ I took a lot of inspiration from two other tech related blogging sites:
 My favorite frontend framework of choice is, as you might have guessed, [Sveltekit](https://kit.svelte.dev/).
 The component based approached, combined with file based routing and general simplicity really makes using Svelte a fun experience. 
 
-![Svelte [small]](/content/009-building-the-blog/images/svelte.png)
+![Svelte [small]](images/svelte.png)
 
 So it's probably no surprise that I went with Sveltekit as the frontend framework for this blogging site.
 I don't use any fancy external styling solutions. 
@@ -63,7 +63,7 @@ This way, I split the file into the metadata and the actual markdown that needs 
 At this point each post already knows his final url, so I can start collecting the viewcount.
 This information is stored in a [Supabase table](https://supabase.com/).
 
-![Supabase is used to store viewcounts [small]](/content/009-building-the-blog/images/supabase.png)
+![Supabase is used to store viewcounts [small]](images/supabase.png)
 
 To prevent constantly needing to fetch this data when I'm developing locally, I implemented a cache.
 Each viewcount fetch first checks if there isn't a local file containing the requested information.
@@ -138,7 +138,7 @@ is rendered like this:
 
 At the bottom of each blogpost, there is [a component](https://github.com/jefmeijvis/www.jefmeijvis.com/blob/main/src/lib/components/utterances.svelte) that renders a comment section.
 This comment section makes use of Github Issues, and is powered by [Utterances](https://utteranc.es/).
-![Each post has a comment section](/static/post/009/comments.png)
+![Each post has a comment section](images/comments.png)
 
 Users can login using their Github account.
 All comments are public, and can be viewed on the issue tracker on Github as well. 
@@ -147,7 +147,7 @@ All comments are public, and can be viewed on the issue tracker on Github as wel
 Hosting is done on [Vercel](https://vercel.com/).
 Integration with Github means that for every commit on the main branch, a new build is triggered.
 
-![This website is hosted on Vercel [small]](/content/009-building-the-blog/images/vercel.jpg)
+![This website is hosted on Vercel [small]](images/vercel.jpg)
 
 ### Build webhook
 

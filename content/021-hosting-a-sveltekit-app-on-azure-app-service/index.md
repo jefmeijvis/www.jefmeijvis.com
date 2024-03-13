@@ -24,7 +24,7 @@ Let's get started by creating [a new SvelteKit project.](https://kit.svelte.dev/
 If you already have an existing project you want to deploy, you can use that one instead of creating a new one. 
 But for this article we will start with a brand new demo project.
 
-![Svelte logo [small]](/content/021-hosting-a-sveltekit-app-on-azure-app-service/images/svelte.png)
+![Svelte logo [small]](images/svelte.png)
 
 
 We do this by making use of [create-svelte](https://www.npmjs.com/package/create-svelte), a CLI for creating new Sveltekit projects.
@@ -38,7 +38,7 @@ The CLI interface that appears allows us to select one out of 3 possible startin
 It doesn't really matter which one we choose, but the demo app showcases some nice features of Svelte, so we'll go with that one. 
 
 
-![Create a SvelteKit demo project using the command line](/content/021-hosting-a-sveltekit-app-on-azure-app-service/images/create-sveltekit-project.png)
+![Create a SvelteKit demo project using the command line](images/create-sveltekit-project.png)
 
 After selecting the demo project and finishing the setup, we navigate to the project directory, perform an install and start up the dev server.
 
@@ -51,7 +51,7 @@ npm run dev;
 We are greeted with the following demo application.
 Our goal for today is to get this application hosted on the public internet.
 
-![Sveltekit Demo App](/content/021-hosting-a-sveltekit-app-on-azure-app-service/images/sveltekit-demo-app.png)
+![Sveltekit Demo App](images/sveltekit-demo-app.png)
 
 ## Installing the Svelte - Azure adapter 
 To host our application on an Azure App Service instance, we will need to install a specific adapter.
@@ -93,7 +93,7 @@ git init;
 
 Next up, a new [Azure Devops](https://dev.azure.com) project is created by making use of the web interface.
 
-![Azure Devops Project [medium]](/content/021-hosting-a-sveltekit-app-on-azure-app-service/images/devops-project.png)
+![Azure Devops Project [medium]](images/devops-project.png)
 
 Make sure to copy the url of the project, as we need it in the next step. 
 For my case this was *https://dev.azure.com/jefmeijvisdemo/_git/sveltekit-demo*.
@@ -112,13 +112,13 @@ Make sure that you have a subscription set up and ready to go.
 If this is your first time using the Azure Portal, it might be possible to create a free trial subscription for 12 months of free services. Azure App Services is one of the services included in the free trial.
 More info for your region can be found at [azure.microsoft.com/en-us/free](https://azure.microsoft.com/en-us/free).
 
-![Select App Services between the available resources](/content/021-hosting-a-sveltekit-app-on-azure-app-service/images/portal-resources.png)
+![Select App Services between the available resources](images/portal-resources.png)
 
 Look for the Azure App Services logo between the available resources and select it. 
 If this resource is not immediately visible, you might have to search for it in the search bar at the top of the portal.
 Select *Azure App service* and *+ Create Static Web App*.
 
-![Azure App Service logo © Microsoft [small]](/content/021-hosting-a-sveltekit-app-on-azure-app-service/images/logo.png)
+![Azure App Service logo © Microsoft [small]](images/logo.png)
 
 After selecting the Static Web App option, we are prompted with the project details.
 Select a subscription, create or provide a resource group and choose a project name.
@@ -126,13 +126,13 @@ I've selected the Free hobby tier plan type because this is a demo project.
 As region I've selected West-Europe, as that is where I'm located. 
 Below are the settings that I used:
 
-![Entering the project details [medium]](/content/021-hosting-a-sveltekit-app-on-azure-app-service/images/static-app-1.png)
+![Entering the project details [medium]](images/static-app-1.png)
 
 Next up we need to fill in our deployment details.
 I have selected my private demo Azure Devops organization, along with the details of the repository.
 By selecting the *SvelteKit* build preset, I'm provided with the default remaining settings, which work for most simple usecases. 
 
-![Entering the deployment details [medium]](/content/021-hosting-a-sveltekit-app-on-azure-app-service/images/static-app-2.png)
+![Entering the deployment details [medium]](images/static-app-2.png)
 
 Select *Review and Create* at the bottom of the screen, and if all is good and well we will have our Sveltekit app up and running.
 After a minute or so you will be able to open up the newly created resource, and go to the auto-generated URl.

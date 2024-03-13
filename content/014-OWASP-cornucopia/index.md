@@ -17,7 +17,7 @@ The primary goal of threat modeling is to proactively identify and mitigate pote
 ## Cybersecurity gamification
 The card game of [OWASP Cornucopia](https://owasp.org/www-project-cornucopia/) integrates the act of threat modeling into an agile development environment. It allows developers and architects to identify threats in a specific application, system or feature.  
 
-![OWASP Cornucopia example cards [medium]](/content/014-owasp-cornucopia/images/logo.png)
+![OWASP Cornucopia example cards [medium]](images/logo.png)
 
 The game consists out of 6 suits, each containing 13 cards. 
 Each suit represents a different security topic, with the Cornucopia suit representing all topics that didn't fit in another category:
@@ -30,7 +30,7 @@ Each suit represents a different security topic, with the Cornucopia suit repres
 - Cornucopia
 
 The game also contains two joker cards.
-![Example cryptography card [small]](/content/014-owasp-cornucopia/images/example-card.png)
+![Example cryptography card [small]](images/example-card.png)
 
 ## How to play
 

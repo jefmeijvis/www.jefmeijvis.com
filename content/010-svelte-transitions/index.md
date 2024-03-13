@@ -36,7 +36,7 @@ We can add the transition directive to native dom elements, such as a paragraph 
 {/if}
 ```
 
-![The paragraph fades in an out when the DOM elements get added or removed [medium]](/content/010-svelte-transitions/images/transition-example-1.gif)
+![The paragraph fades in an out when the DOM elements get added or removed [medium]](images/transition-example-1.gif)
 
 ### Out-of-the-box transitions
 
@@ -151,7 +151,7 @@ css: (t,u) =>
 ```
 The function above would generate a CSS animation that changes the font size from 0rem to 1rem when the element gets created, and from 1rem to 0rem when destroying the object. This example only changes the font-size, but as many css properties as needed can be modified during a transition. 
 
-![Custom font-size transition [small]](/content/010-svelte-transitions/images/transition-example-custom.gif)
+![Custom font-size transition [small]](images/transition-example-custom.gif)
 
 
 ## Layout transitions
@@ -178,9 +178,8 @@ This will fade the entire content slot in and out.
 We add the absolute position tag to the div so that both slots are rendered on top of each other.
 This will prevent popping in when the original div disappears from the DOM.
 
-I've set up a live demo at [Post 10 demo](/demo/010/)
 When using the code as shown above, we get the following result:
-![Layout fly transition [medium]](/content/010-svelte-transitions/images/transition-example-demo-1.gif)
+![Layout fly transition [medium]](images/transition-example-demo-1.gif)
 This works great! All the content in the slot tag flies in and out when a new page gets loaded.
 
 ## Directional transition
@@ -258,8 +257,7 @@ We can use this direction in the same layout file to generate the options object
 ```
 
 And by doing so, we reverse the transition direction going back up the url tree.
-You can view the result live at the [Post 10 demo page.](/demo/010/)
-![Layout fly transition [medium]](/content/010-svelte-transitions/images/transition-example-demo-2.webp)
+![Layout fly transition [medium]](images/transition-example-demo-2.webp)
 
 
 
@@ -343,7 +341,7 @@ The sound is played by the afterNavigate hook, and a custom transition scales an
 </style>
 ```
 
-![I have peaked as a web developer](/content/010-svelte-transitions/images/batman.webp)
+![I have peaked as a web developer](images/batman.webp)
 
 ## Accessibility
 As mentioned in [this great blogpost by Geoff Rich](https://geoffrich.net/posts/accessible-svelte-transitions/), we need to make sure that we keep the accessibility of our webpage in mind.

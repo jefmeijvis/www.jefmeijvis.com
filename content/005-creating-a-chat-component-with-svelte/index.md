@@ -13,7 +13,7 @@ published : true
 
 In this article we're going to create a simple chatbox, using Svelte. The design is based on similar chat services, such as Facebook Messenger or WhatsApp. At this point the entire chatbox is local, so no data is going in or out. Below is an image of the finished result:
 
-![A chat windows created with Svelte components [medium]](/content/005-creating-a-chat-component-with-svelte/images/demo.png)
+![A chat windows created with Svelte components [medium]](images/demo.png)
 
 Use the 'Username' field to choose a username. It's value is taken as is, so when you pick a name, you will have that identity. This means it's possible to pick an existing user. Whenever you change the current user, the styling of the chatwindow will update, showing which messages are your own. Underneath there is space to type a message, and a button to send the message.
 
@@ -21,7 +21,7 @@ Use the 'Username' field to choose a username. It's value is taken as is, so whe
 
 Let's start by creating a container div in our main component file (chatbox.svelte). This will be a full page-width div to contain our actual chatbox. Next up, add our actual chatbox div. In here we will create a h1 element to create our title, and another div which we will give the classname message-container. When we apply some styling, we get the following result:
 
-![A chat windows created with Svelte components [medium]](/content/005-creating-a-chat-component-with-svelte/images/demo-1.png)
+![A chat windows created with Svelte components [medium]](images/demo-1.png)
 
 ```svelte
 <div class="container">
@@ -167,7 +167,7 @@ We further update the chatbox.svelte file by using our newly created bubble.svel
 
 By combining all these changes, we get the following result:
 
-![A chat windows created with Svelte components [medium]](/content/005-creating-a-chat-component-with-svelte/images/demo-2.png)
+![A chat windows created with Svelte components [medium]](images/demo-2.png)
 
 Looking great so far! We are able to render the message, the user and the timestamp in an interactive chat window. Based on which user we specified in code, we can determine which chat bubbles are ours.
 
@@ -296,4 +296,4 @@ Finish things of by including the Controls component in our chatbox div, while b
 
 This gives us the following result, as showed at the start of the article:
 
-![A chat windows created with Svelte components [medium]](/content/005-creating-a-chat-component-with-svelte/images/demo.png)
+![A chat windows created with Svelte components [medium]](images/demo.png)

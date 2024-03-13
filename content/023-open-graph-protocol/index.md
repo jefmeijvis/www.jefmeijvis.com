@@ -18,13 +18,13 @@ The example below shows an article from the [New York Times](https://www.nytimes
 Their website uses the OGP to provide an article title, description, author and image-url.
 Using all this information, Facebook is able to generate the preview card shown below: 
 
-![A card generated with the OpenGraph data available [medium]](/content/023-open-graph-protocol/images/facebook-card.png)
+![A card generated with the OpenGraph data available [medium]](images/facebook-card.png)
 
 ## Widespread adoption
 Since then, the OGP has been wildly adopted by almost all mainstream content websites and social media platforms.
 Whenever you share a popular website on Microsoft Teams, Discord, Slack or Twitter, chances are that a neat little preview is generated. 
 
-![Sharing a post on Twitter [medium]](/content/023-open-graph-protocol/images/twitter-card.png)
+![Sharing a post on Twitter [medium]](images/twitter-card.png)
 
 
 ## How to use

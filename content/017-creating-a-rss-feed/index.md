@@ -13,7 +13,7 @@ published : true
 Recently I added a RSS feed to my personal blogging site.
 [RSS (RDF Site Summary)](https://en.wikipedia.org/wiki/RSS) is a web feed technology, allowing programs to get updates from websites in a standardized fashion. Applications (called aggregators) can collect updates from different RSS sources, and display them in a custom newsfeed. RSS is mostly used for websites that update frequently such as blogs, podcasts and news sites.
 
-![RSS Logo [medium]](/content/017-creating-a-rss-feed/images/logo.png)
+![RSS Logo [medium]](images/logo.png)
 
 ## What is RSS
 When queried, a RSS feed displays channels containing generic items. 

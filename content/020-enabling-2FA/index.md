@@ -14,7 +14,7 @@ published : true
 Multi-factor authentication, or 2-factor authentication in this case, requires users to provide more than a single form of verification to access their accounts. In addition to entering a matching email and password combination, users must also present a mobile phone device or a biometric factor to gain entry into their environment.
 Common second factors are using a SMS text message, a mobile phone authenticator app, a fingerprint scan or a face scan using Windows Hello.
 
-![Microsoft Multi Factor Authentication (MFA) [small]](/content/020-enabling-2fa/images/logo.png)
+![Microsoft Multi Factor Authentication (MFA) [small]](images/logo.png)
 
 Adding an additional authentication factor is an important first step in creating a safe and secure working place. 
 Below is a quick overview on how to enable MFA for your Microsoft 365 environment.
@@ -29,17 +29,17 @@ We will be making changes to the security settings of our Microsoft tenant throu
 ### Search for Microsoft Entra ID
 When logged in to the Azure Portal, search for the 'Microsoft Entra ID' service.
 Entra ID is the new name of Azure Active Directory. When found, click on the service to open up its dedicated page. s
-![Search for Entra ID [medium]](/content/020-enabling-2fa/images/search.png)
+![Search for Entra ID [medium]](images/search.png)
 
 On the left hand side there will be a blade menu, where we will select the 'Properties' menu item. 
-![Entra ID Properties [small]](/content/020-enabling-2fa/images/azure-1.png)
+![Entra ID Properties [small]](images/azure-1.png)
 
 
 ### Open security defaults
 On the bottom select 'Manage security defaults', and turn on the toggle button.
 This will enable a list of best practice security defaults for your Microsoft environment.
 
-![Enable security defaults [medium]](/content/020-enabling-2fa/images/security-defaults.png)
+![Enable security defaults [medium]](images/security-defaults.png)
 
 
 ## What are the security defaults? 

@@ -14,7 +14,7 @@ Azure functions can be used in countless different ways. One of these is setting
 
 Let's get started by opening up Visual Studio 2022 and selecting the Azure Functions template. I'm using .NET 6.0 (LTS) here, but any recent version of .NET will do. As function trigger we will select a Timer trigger.  
 
-![Creating a new functions project in Visual Studio 2022](/content/011-azure-functions-cron-job/images/azure-functions-template.png)
+![Creating a new functions project in Visual Studio 2022](images/azure-functions-template.png)
 
 Don't worry about getting the initial settings wrong, as they can all be changed later. When creating the project we get the following starting point:
 
