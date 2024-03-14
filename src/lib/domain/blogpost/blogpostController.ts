@@ -49,6 +49,6 @@ function getDirectories(path : string) : string[]
 
 async function getViews(page : string) : Promise<number>
 {
-    let response = await supabase.from("jefmeijvis_visits").select('*',{count : "exact"}).ilike('page','%' + page + '%');
+    let response = await supabase.from("website_visits").select('*',{count : "exact"}).like('host','www.jefmeijvis.com').ilike('page','%' + page + '%');
     return response.count ?? -1
 }
