@@ -10,7 +10,7 @@
 
     function click()
     {
-        goto('/blog/' + post.path.toLowerCase())
+        goto('/blog/' + post.path)
     }
 </script>
 
