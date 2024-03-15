@@ -16,7 +16,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Jef Meijvis">
     <meta property="og:description" content="{post.description}">
-    <meta property="og:image" content="{$page.url.protocol}{$page.url.host}/content/{post.path}/images/opengraph.png">
+    <meta name="twitter:image" content="https://www.jefmeijvis.com/content/{post.path}/images/opengraph.png">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
@@ -24,5 +24,5 @@
     <meta property="twitter:url" content="https://www.jefmeijvis.com">
     <meta name="twitter:title" content="Jef Meijvis">
     <meta name="twitter:description" content="{post.description}">
-    <meta name="twitter:image" content="{$page.url.protocol}{$page.url.host}/content/{post.path}/images/opengraph.png">
+    <meta name="twitter:image" content="https://www.jefmeijvis.com/content/{post.path}/images/opengraph.png">
 </svelte:head>
