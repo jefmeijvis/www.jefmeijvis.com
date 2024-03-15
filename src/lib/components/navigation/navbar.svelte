@@ -45,7 +45,7 @@
 {#if menuOpen}
     <div class="mobile-menu">
         {#each [...links].reverse() as link}
-            <NavMobileButton onClick={()=>{()=>{console.log('click');toggleMenu();goto(link.href)}}}>
+            <NavMobileButton onClick={()=>{{console.log('click');toggleMenu();goto(link.href)}}}>
                 {link.name}
             </NavMobileButton>
         {/each}
