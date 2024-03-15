@@ -12,7 +12,7 @@ const config = {
 			entries : 
 			[
 				// Error page as required by Vercel
-				"/404.html",
+				"/404",
 
 				// List of all old blogposts before migration to the new content system. 
 				// Theses links still exist in the open internet so they are created for backward compatibility
