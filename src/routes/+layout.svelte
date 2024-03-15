@@ -1,6 +1,7 @@
 <script lang="ts">
     import Background from "$lib/components/background.svelte";
     import Footer from "$lib/components/footer.svelte";
+    import MetaTags from "$lib/components/metaTags.svelte";
     import Navbar from "$lib/components/navigation/navbar.svelte";
     import { theme } from "../stores";
 
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="/css/{$theme}-theme.css" />
 </svelte:head>
 
+<MetaTags></MetaTags>
 <Navbar></Navbar>
 <Background></Background>
 <div class="page-container">
