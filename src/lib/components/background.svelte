@@ -43,4 +43,12 @@
         user-select: none;
         color: var(--color-text)
 }
+
+@media (max-aspect-ratio: 1/1) 
+{
+    .background-effect
+    {
+        display: none;
+    }
+}
 </style>
