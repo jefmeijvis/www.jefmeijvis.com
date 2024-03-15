@@ -14,7 +14,7 @@
         <meta property="og:type" content="website">
         <meta property="og:title" content="Jef Meijvis">
         <meta property="og:description" content="Blogging about CyberSecurity and software development using .NET, Svelte and Azure.">
-        <meta property="og:image" content="https://jefmeijvis.com/images/opengraph.png">
+        <meta property="og:image" content="{$page.url.protocol}{$page.url.host}/images/opengraph.png">
 
         <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
@@ -22,6 +22,6 @@
         <meta property="twitter:url" content="https://www.jefmeijvis.com">
         <meta name="twitter:title" content="Jef Meijvis">
         <meta name="twitter:description" content="Blogging about CyberSecurity and software development using .NET, Svelte and Azure.">
-        <meta name="twitter:image" content="https://jefmeijvis.com/images/opengraph.png">
+        <meta name="twitter:image" content="{$page.url.protocol}{$page.url.host}/images/opengraph.png">
     {/if}
 </svelte:head>
