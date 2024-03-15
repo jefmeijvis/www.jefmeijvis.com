@@ -22,6 +22,6 @@
         <meta property="twitter:url" content="https://www.jefmeijvis.com">
         <meta name="twitter:title" content="Jef Meijvis">
         <meta name="twitter:description" content="Blogging about CyberSecurity and software development using .NET, Svelte and Azure.">
-        <meta name="twitter:image" content="{$page.url.protocol}{$page.url.host}/images/opengraph.png">
+        <meta name="twitter:image" content="https://www.jefmeijvis.com/images/opengraph.png">
     {/if}
 </svelte:head>
