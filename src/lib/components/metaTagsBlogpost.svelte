@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { page } from "$app/stores";
     import type { Blogpost } from "$lib/domain/blogpost/blogpost";
 
     export let post : Blogpost
@@ -16,7 +15,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Jef Meijvis">
     <meta property="og:description" content="{post.description}">
-    <meta name="twitter:image" content="https://www.jefmeijvis.com/content/{post.path}/images/opengraph.png">
+    <meta property="og:image" content="https://www.jefmeijvis.com/content/{post.path}/images/opengraph.png">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
