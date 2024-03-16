@@ -25,8 +25,6 @@
     {
         background-color: var(--color-accent);
         color:var(--color-text-secondary);
-        padding : .5rem;
-        border-radius: .5rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
     }
