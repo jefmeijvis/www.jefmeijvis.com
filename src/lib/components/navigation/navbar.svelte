@@ -45,11 +45,11 @@
 {#if menuOpen}
     <div class="mobile-menu">
         {#each [...links].reverse() as link}
-            <NavMobileButton onClick={()=>{{console.log('click');toggleMenu();goto(link.href)}}}>
+            <NavMobileButton onClick={()=>{{toggleMenu();goto(link.href)}}}>
                 {link.name}
             </NavMobileButton>
         {/each}
-        <NavMobileButton onClick={()=>{$theme = ($theme == "light" ? 'dark' : 'light')}}>
+        <NavMobileButton onClick={()=>{$theme = ($theme == "light" ? 'dark' : 'light');toggleMenu()}}>
             Toggle Theme
         </NavMobileButton>
     </div>
