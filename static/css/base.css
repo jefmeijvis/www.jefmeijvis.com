@@ -39,7 +39,7 @@ body
   color: var(--color-text);
 }
 
-p,code,a,li,ul,ol,blockquote
+p,a,li,ul,ol,blockquote
 {
   font-size: 1.1rem;
 }
