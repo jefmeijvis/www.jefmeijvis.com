@@ -15,7 +15,6 @@
 
     function doOnMount()
     {
-        console.log("DoOnMount")
         let hours : number =  getHoursSince(timestamp);
 
         if(hours < 1)
