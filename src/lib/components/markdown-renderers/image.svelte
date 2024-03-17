@@ -1,11 +1,26 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import { theme } from "../../../stores";
 
     export let href = ''
     export let title : string = ""
     export let text = ''
 
-    let url : string = '/content' + $page.url.pathname.replace('/blog','') + '/' + href
+    function getUrl(theme : string)
+    {
+        let themedHref : string = href;
+        if(theme == 'light')
+        {
+            themedHref = themedHref.replaceAll('-dark','-light')
+        }
+        else
+        {
+            themedHref = themedHref.replaceAll('-light','-dark')
+        }
+
+        return '/content' + $page.url.pathname.replace('/blog','') + '/' + themedHref;
+    }
+
 
     // Using /static allows autocomplete in VS code somehow, but breaks the image linking
     // So I just remove it before applying the href property of the img tag.
@@ -41,36 +56,35 @@
         return "";
     }
 
-  </script>
+</script>
   
-  <img loading="lazy" style="{getStyle()}" src={url} {title} alt={text}>
-  <p class="alt-text"><i>Image: {text}</i></p>
+<img loading="lazy" style="{getStyle()}" src={getUrl($theme)} {title} alt={text}>
+<p class="alt-text"><i>Image: {text}</i></p>
 
+<style>
+    .alt-text
+    {
+        font-weight: 300;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
 
-  <style>
-        .alt-text
-        {
-            font-weight: 300;
-            font-size: 1rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+    img
+    {
+        width : 100%;
+        border-radius: .5rem;
+        margin:auto;
+        margin-top: 2rem;
+        margin-bottom: 1rem;;
+        display: block;
+    }
 
+    @media (max-aspect-ratio: 1/1) 
+    {
         img
         {
-            width : 100%;
-            border-radius: .5rem;
-            margin:auto;
-            margin-top: 2rem;
-            margin-bottom: 1rem;;
-            display: block;
+            width : 100% !important;
         }
-
-        @media (max-aspect-ratio: 1/1) 
-        {
-            img
-            {
-                width : 100% !important;
-            }
-        }
-  </style>
+    }
+</style>
