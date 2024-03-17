@@ -78,6 +78,7 @@
         </div>
     </div>
     <p>© Jef Meijvis 2021 - {new Date().getFullYear()}</p>
+    <p><a target="_blank" href="https://github.com/jefmeijvis/www.jefmeijvis.com">Source code on GitHub</a></p>
     <p>Views and other metrics are updated daily</p>
     <p>Last update was {getCurrentDate()}{timeAgo}</p>
 </footer>
