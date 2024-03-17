@@ -20,9 +20,9 @@
     }
 </script>
 <Introduction></Introduction>
-<h1>Most viewed Articles</h1>
+<h1>Most viewed articles</h1>
 <BlogContainer sorting={sortByViewsDescending} limit={3} posts={data.blogposts}></BlogContainer>
-<BlogBar updateSearchString={changeSearchString} title="Recent articles" toggleView={toggleListView}></BlogBar>
+<BlogBar updateSearchString={changeSearchString} title="Most recent articles" toggleView={toggleListView}></BlogBar>
 <BlogContainer searchString={searchString} limit={9} viewToggle={listview} posts={data.blogposts}></BlogContainer>
 <p>
     <a href="/blog">View all posts</a>

@@ -1,8 +1,39 @@
 <script lang="ts">
     import type { Blogpost } from "$lib/domain/blogpost/blogpost";
+    import { getHoursSince } from "$lib/utils/date";
     import { Text } from "$lib/utils/text";
+    import { onMount } from "svelte";
 
     export let blogposts : Blogpost[];
+    export let timestamp : Date;
+    export let timeAgo : string = '';
+
+    function getCurrentDate() : string
+    {
+        return timestamp.toUTCString() 
+    }
+
+    function doOnMount()
+    {
+        console.log("DoOnMount")
+        let hours : number =  getHoursSince(timestamp);
+
+        if(hours < 1)
+        {
+            let minutes = Math.ceil(hours * 60);
+            timeAgo = ', or ' + minutes + ' minutes ago'
+        }
+        else if(hours > 1 && hours < 2)
+        {
+            timeAgo = ', or 1 hour ago'
+        }
+        else
+        {
+            timeAgo = ', or ' + Math.ceil(hours) + ' hours ago'
+        }
+    }
+
+    onMount(doOnMount)
 </script>
 
 
@@ -48,6 +79,7 @@
     </div>
     <p>© Jef Meijvis 2021 - {new Date().getFullYear()}</p>
     <p>Views and other metrics are updated daily</p>
+    <p>Last update was {getCurrentDate()}{timeAgo}</p>
 </footer>
 
 

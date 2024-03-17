@@ -6,3 +6,11 @@ export function getDaysSince(input : string) : number
     let differenceInDays = Math.ceil(difference / (1000 * 3600 * 24));
     return differenceInDays;
 }
+
+export function getHoursSince(input : Date) : number
+{
+    let now = new Date()
+    let difference = Math.abs(now.getTime() - input.getTime());
+    let differenceInHours = difference / (1000 * 3600);
+    return differenceInHours;
+}

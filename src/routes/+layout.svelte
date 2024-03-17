@@ -18,7 +18,7 @@
 <div class="page-container">
     <slot></slot>
 </div>
-<Footer blogposts={data.blogposts}></Footer>
+<Footer timestamp={data.timestamp} blogposts={data.blogposts}></Footer>
 
 <style>
     .page-container

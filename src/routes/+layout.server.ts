@@ -4,6 +4,7 @@ export const prerender = true;
 export async function load()
 {
     return {
-        blogposts : await getBlogposts()
+        blogposts : await getBlogposts(),
+        timestamp : new Date(),
     }
 }
