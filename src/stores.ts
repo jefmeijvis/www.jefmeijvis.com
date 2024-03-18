@@ -1,6 +1,8 @@
 // src/lib/stores.ts
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store"
+import { browser } from "$app/environment"
 
-const theme = writable<Theme>('light');
-
-export { theme }
+export const theme = writable(browser && localStorage.getItem("theme") || "dark")
+theme.subscribe((val) => {
+  if (browser) return (localStorage.theme = val)
+})

@@ -28,7 +28,7 @@
     .link:hover
     {
         opacity: 100%;
-        text-shadow: 0px 0px 10px var(--color-text-bright);
+        text-shadow: 0px 0px 10px #ffffff;
     }
 
     @media (max-aspect-ratio: 1/1) 
