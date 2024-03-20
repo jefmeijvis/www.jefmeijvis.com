@@ -1,11 +1,13 @@
 <script lang="ts">
     import type { Blogpost } from "$lib/domain/blogpost/blogpost";
+    import {Text} from "$lib/utils/text"
 
     export let post : Blogpost
 </script>
 
 <svelte:head>
     <!--GENERAL META TAGS-->
+    <title>{Text.desluggify(post.title)} - Jef Meijvis</title>
     <meta name="description" content="{post.description}">
     <meta name="keywords" content="Svelte, Cybersecurity, Azure, Microsoft, dotnet, .NET, HTML, CSS, JavaScript">
     <meta name="author" content="Jef Meijvis">

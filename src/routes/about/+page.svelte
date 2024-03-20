@@ -1,3 +1,7 @@
+<svelte:head>
+    <title>About - Jef Meijvis</title>
+</svelte:head>
+
 <img class="profile-picture" alt="Jef Meijvis" src="/images/profile.png"/>
 
 <h1>About me</h1>

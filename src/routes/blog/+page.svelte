@@ -22,6 +22,10 @@
     }
 </script>
 
+<svelte:head>
+    <title>Blogposts - Jef Meijvis</title>
+</svelte:head>
+
 <h1>All blogposts</h1>
 <p>
     I've been using this blog to share my thoughts since October 2021.

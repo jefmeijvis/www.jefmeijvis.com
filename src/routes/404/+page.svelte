@@ -8,4 +8,8 @@
     */
 </script>
 
+<svelte:head>
+    <title>Page not found - Jef Meijvis</title>
+</svelte:head>
+
 <Notfound></Notfound>

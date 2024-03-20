@@ -19,6 +19,11 @@
         listview = value;
     }
 </script>
+
+<svelte:head>
+    <title>Jef Meijvis</title>
+</svelte:head>
+
 <Introduction></Introduction>
 <h1>Most viewed articles</h1>
 <BlogContainer sorting={sortByViewsDescending} limit={3} posts={data.blogposts}></BlogContainer>
