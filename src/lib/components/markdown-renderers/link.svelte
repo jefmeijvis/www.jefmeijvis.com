@@ -1,33 +1,22 @@
 <script lang="ts">
-	import { page } from "$app/stores";
-
-
     export let href = ''
     export let title : string = ""
 
     let target : string = "_blank";
 
 
-    if(href.includes('www.jefmeijvis.com'))
+    if(href.includes('www.jefmeijvis.com') || href.includes('localhost:'))
       target = '_self';
 
-    if(href.startsWith('/'))
+    if(href.startsWith('/') || href.includes('#'))
       target = '_self';
-
-    function click()
-    {
-      let body = 
-      {
-        href : href,
-        page : $page.url.href
-      }
-
-      navigator.sendBeacon("/api/link",JSON.stringify(body))
-    }
 
   </script>
   
-  <a on:click={click} {target} {href} {title}><slot></slot></a>
+  <a {target} {href} {title}>
+    <slot></slot>
+  </a>
+
 
   <style>
     a

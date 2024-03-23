@@ -1,5 +1,5 @@
 import BlockQuote from '$lib/components/markdown-renderers/blockQuote.svelte';
-import Code from '$lib/components/markdown-renderers/code.svelte';
+import CodeSelector from '$lib/components/markdown-renderers/codeSelector.svelte';
 import Heading from '$lib/components/markdown-renderers/heading.svelte';
 import Image from '$lib/components/markdown-renderers/image.svelte';
 import Link from '$lib/components/markdown-renderers/link.svelte';
@@ -11,7 +11,7 @@ import TableCell from '$lib/components/markdown-renderers/tableCell.svelte';
 
 let renderers =
 {
-    code : Code,
+    code : CodeSelector,
     heading : Heading,
     paragraph : Paragraph,
     list : List,
