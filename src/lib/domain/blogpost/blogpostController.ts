@@ -24,6 +24,8 @@ export async function getBlogposts() : Promise<Blogpost[]>
         //@ts-ignore
         post.date = parsed.attributes.date;
         //@ts-ignore
+        post.published = parsed.attributes.published;
+        //@ts-ignore
         post.description = parsed.attributes.description;
         //@ts-ignore
         post.category = parsed.attributes.category;
@@ -31,7 +33,12 @@ export async function getBlogposts() : Promise<Blogpost[]>
         result.push(post);
     }
 
-    return result.sort(sortingFunction);
+    return result.filter(filterFunction).sort(sortingFunction);
+}
+
+function filterFunction(a : Blogpost) : boolean
+{
+    return a.published;
 }
 
 function sortingFunction(a : Blogpost, b : Blogpost) : number

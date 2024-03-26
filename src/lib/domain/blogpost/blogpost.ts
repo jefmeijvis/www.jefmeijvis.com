@@ -9,4 +9,5 @@ export type Blogpost =
     attributes : any,
     category : string,
     views : number,
+    published : boolean,
 }
