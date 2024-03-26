@@ -1,7 +1,6 @@
 <script lang='ts'>
     import {display} from 'mathlifier';
     export let text : string;
-
 </script>
 
 <svelte:head>

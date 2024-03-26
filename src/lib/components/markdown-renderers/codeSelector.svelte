@@ -7,7 +7,9 @@
 </script>
 
 {#if lang=='math'}
-    <Math {lang} {text} ></Math>
+    <!-- Render mathematical TeX equations -->
+    <Math {text} ></Math>
 {:else}
+    <!-- Render all other languages -->
     <Code {lang} {text}></Code>
 {/if}

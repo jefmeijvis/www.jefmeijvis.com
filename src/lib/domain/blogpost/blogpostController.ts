@@ -36,11 +36,13 @@ export async function getBlogposts() : Promise<Blogpost[]>
     return result.filter(filterFunction).sort(sortingFunction);
 }
 
+// Only allow blogposts to where the 'published' flag is set to true
 function filterFunction(a : Blogpost) : boolean
 {
     return a.published;
 }
 
+// Sort all blogposts by descending date
 function sortingFunction(a : Blogpost, b : Blogpost) : number
 {
     return ('' + b.date).localeCompare(a.date);
