@@ -3,6 +3,7 @@
     import SvelteMarkdown from 'svelte-markdown';
     import renderers from '$lib/components/markdown-renderers/renderers'
     import MetaTagsBlogpost from "$lib/components/metaTagsBlogpost.svelte";
+    import ViewOnGithub from "$lib/components/viewOnGithub.svelte";
     import { theme } from "../../../stores";
 
 	export let data;
@@ -12,7 +13,7 @@
 <h1>{Text.desluggify(data.post.title)}</h1>
 <img src='/content/{data.post.path}/images/cover-{$theme}.png' alt='Cover for {Text.desluggify(data.post.title)}'/>
 <SvelteMarkdown source={data.post.markdown} renderers={renderers}/>
-
+<ViewOnGithub url="https://github.com/jefmeijvis/www.jefmeijvis.com/blob/master/content/{data.post.path}/index.md"></ViewOnGithub>
 
 <style>
     img{
