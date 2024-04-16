@@ -14,44 +14,34 @@
     let innerHeight : number;
     let innerWidth : number;
     let mobile : boolean;
-    let count : number = 0;
     let visiblePosts : Blogpost[];
 
-    function increment()
-    {
-        if(!limit)
-            return true;
-
-        if(count < limit)
-        {
-            count++;
-            return true;
-        }
-
-        return false;
-    }
-
     visiblePosts = posts.sort(sorting);
+    visiblePosts = visiblePosts.filter((post : Blogpost) => filterPost(post,searchString));
+    visiblePosts = visiblePosts.slice(0,limit)
+
+    $:
+    {
+        visiblePosts = posts.sort(sorting);
+        visiblePosts = visiblePosts.filter((post : Blogpost) => filterPost(post,searchString));
+        visiblePosts = visiblePosts.slice(0,limit)
+    }
 </script>
 
 {#if searchString}
     <p>
-        <i>Searching for {searchString}:</i>
+        <i>Searching for <b>{searchString}</b> gave {visiblePosts.length} result(s):</i>
     </p>
 {/if}
 
 
-{#key searchString}
+{#key searchString} 
     <div>
         {#each visiblePosts as post,index}
-            {#if filterPost(post,searchString)}
-                {#if increment()}
-                    {#if (viewToggle && !mobile)}
-                        <BlogRow {index} {post}></BlogRow>
-                    {:else}
-                        <BlogCard {index} {post}></BlogCard>
-                    {/if}
-                {/if}
+            {#if (viewToggle && !mobile)}
+                <BlogRow {index} {post}></BlogRow>
+            {:else}
+                <BlogCard {index} {post}></BlogCard>
             {/if}
         {/each}
     </div>

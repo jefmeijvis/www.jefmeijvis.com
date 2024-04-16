@@ -2,7 +2,7 @@ import type { Blogpost } from "./blogpost";
 
 export function filterPost(post : Blogpost, searchString : string | undefined) : boolean
 {
-    if(!searchString)
+    if(!searchString || searchString == '')
         return true;
 
     searchString = searchString.toLowerCase();
