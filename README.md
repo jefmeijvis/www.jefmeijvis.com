@@ -1,38 +1,16 @@
-# create-svelte
+# 📚 Personal blogging site
+This repository hosts my personal blogging site over at [jefmeijvis.com](https://www.jefmeijvis.com)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+![Homepage screenshot 22 June 2024](/docs/preview.png)
+# ⚙️ Tech stack
+The website is build using [Sveltekit](https://kit.svelte.dev/).
+All content is written in markdown, with the images stored in a folder next to each *index.md* file. 
+The following node packages are essential to the current setup:
+- [svelte-markdown](https://www.npmjs.com/package/svelte-markdown) as a markdown parser for Svelte, which allows me to express each different type of markdown syntax as a distinct Svelte component. You can view these over at [/src/lib/components/markdown-renderers](https://github.com/jefmeijvis/www.jefmeijvis.com/tree/master/src/lib/components/markdown-renderers).
+- [front-matter](https://www.npmjs.com/package/front-matter) to extract metadata from markdown files.
+- [shiki](https://github.com/shikijs/shiki) as syntax highlighter for code blocks.
+- [mathlifier](https://www.npmjs.com/package/mathlifier) to render LaTeX math equations into HTML. 
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+# 💻 Contributing
+Feel free to open an issue or submit a PR if you feel like something needs to be different! 
+All the content is written in markdown and is stored in this repository under [/content](https://github.com/jefmeijvis/www.jefmeijvis.com/tree/master/content)
