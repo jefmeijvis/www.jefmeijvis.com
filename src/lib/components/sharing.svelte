@@ -3,6 +3,7 @@
     import type { Blogpost } from "$lib/domain/blogpost/blogpost";
     import { Text } from "$lib/utils/text";
     import { fade } from "svelte/transition";
+    import { theme } from "../../stores";
 
     export let post : Blogpost
     let buttonCopyActive : boolean = false;
@@ -41,21 +42,25 @@
 
 <div class="sharing-component">
         <button 
+            style="{$theme == 'light' ? ''  :'filter:invert()'}"
             on:click={buttonTwitter} 
             title="Share this article via X">
             <img alt="x (formerly Twitter) logo" src="/icons/x.png"/>
         </button>
         <button 
+            style="{$theme == 'light' ? ''  :'filter:invert()'}"
             on:click={buttonMastodon} 
             title="Share this article via Mastodon">
             <img alt="x (formerly Twitter) logo" src="/icons/mastodon.svg"/>
         </button>
         <button 
+         style="{$theme == 'light' ? ''  :'filter:invert()'}"
             on:click={buttonPDF} 
             title="Download this article as PDF">
             <img alt="PDF logo" src="/icons/pdf.png"/>
         </button>
         <button 
+            style="{$theme == 'light' ? ''  :'filter:invert()'}"
             on:click={buttonCopy} 
             title="Copy link to clipboard">
             {#if buttonCopyActive}
