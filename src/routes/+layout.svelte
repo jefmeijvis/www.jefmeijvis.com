@@ -15,7 +15,7 @@
 <MetaTags></MetaTags>
 <Navbar></Navbar>
 <Background></Background>
-<div class="page-container">
+<div id="page-container" class="page-container">
     <slot></slot>
 </div>
 <Footer timestamp={data.timestamp} blogposts={data.blogposts}></Footer>
