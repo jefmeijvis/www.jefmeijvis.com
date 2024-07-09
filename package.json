@@ -16,7 +16,7 @@
 		"shiki": "^1.10.0",
 		"svelte": "^4.2.18",
 		"tslib": "^2.6.3",
-		"typescript": "^5.5.2",
+		"typescript": "^5.5.3",
 		"vite": "^5.3.3"
 	},
 	"type": "module",
