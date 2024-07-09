@@ -39,8 +39,8 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1(vite@5.3.3(@types/node@20.14.10))
       vite-plugin-static-copy:
-        specifier: ^1.0.5
-        version: 1.0.5(vite@5.3.3(@types/node@20.14.10))
+        specifier: ^1.0.6
+        version: 1.0.6(vite@5.3.3(@types/node@20.14.10))
     devDependencies:
       '@sveltejs/kit':
         specifier: ^2.5.18
@@ -824,8 +824,8 @@ packages:
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  vite-plugin-static-copy@1.0.5:
-    resolution: {integrity: sha512-02k0Rox+buYdEOfeilKZSgs1gXfPf9RjVztZEIYZgVIxjsVZi6AXssjzdi+qW6zYt00d3bq+tpP2voVXN2fKLw==}
+  vite-plugin-static-copy@1.0.6:
+    resolution: {integrity: sha512-3uSvsMwDVFZRitqoWHj0t4137Kz7UynnJeq1EZlRW7e25h2068fyIZX4ORCCOAkfp1FklGxJNVJBkBOD+PZIew==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0
@@ -1590,7 +1590,7 @@ snapshots:
       micromatch: 4.0.7
       vite: 5.3.3(@types/node@20.14.10)
 
-  vite-plugin-static-copy@1.0.5(vite@5.3.3(@types/node@20.14.10)):
+  vite-plugin-static-copy@1.0.6(vite@5.3.3(@types/node@20.14.10)):
     dependencies:
       chokidar: 3.6.0
       fast-glob: 3.3.2

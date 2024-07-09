@@ -31,6 +31,6 @@
 		"svelte-markdown": "^0.4.1",
 		"utf-8-validate": "^6.0.4",
 		"vite-plugin-restart": "^0.4.1",
-		"vite-plugin-static-copy": "^1.0.5"
+		"vite-plugin-static-copy": "^1.0.6"
 	}
 }
