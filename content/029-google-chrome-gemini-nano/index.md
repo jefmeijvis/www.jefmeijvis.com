@@ -11,9 +11,16 @@ published : true
 
 Steps needed:
 - Download latest version of chrome
+
 - Goto chrome://flags and enable "Prompt API for Gemini Nano" option
+- #optimization-guide-on-device-model - set it to Enabled BypassPerfRequirement
 
+- Now, visit chrome://components and search for Optimization Guide On Device Model component. 
 
+Note: I couldn't get the ai component to work on my Lenovo Legion laptop.
+It did however work on a Lenovo Thinkpad.
+
++-
 Download latest version of [Chrome Canary](https://www.google.com/intl/en_in/chrome/canary/)
 
 Navigate to the flag overview by going to the following url:
@@ -21,6 +28,8 @@ Navigate to the flag overview by going to the following url:
 ```
     chrome://flags
 ```
+
+
 
 Enable **Prompt API for Gemini Nano** setting
 
