@@ -11,7 +11,7 @@ export async function LocalCache(func : Function, cacheSeconds : number, descrip
     if(cacheStatusOk)
     {
         logMessage += " 🟢 Found general request [" + description + "] in cache.";
-        logMessage += "\t⏱️ Age is " + cacheAge + " seconds."
+        logMessage += "\t⏱️ Age is " + generateCacheAgeMessage(cacheAge)
         let responseAsString = fs.readFileSync(filename).toString();
 
         const size = Buffer.byteLength(responseAsString);
@@ -25,7 +25,7 @@ export async function LocalCache(func : Function, cacheSeconds : number, descrip
     else
     {
         logMessage += " 🟠 " + description + " not in cache, got from API";
-        logMessage += "\t⏱️ Age is " + cacheAge + " seconds."
+        logMessage += "\t⏱️ Age is " + generateCacheAgeMessage(cacheAge)
         
         let result = func();
         let response = await Promise.resolve(result)
@@ -53,7 +53,7 @@ export function LocalCacheSync(func : Function, cacheSeconds : number, descripti
     if(cacheStatusOk)
     {
         logMessage += " 🟢 Found general request [" + description + "] in cache.";
-        logMessage += "\t⏱️ Age is " + cacheAge + " seconds."
+        logMessage += "\t⏱️ Age is " + generateCacheAgeMessage(cacheAge)
         let responseAsString = fs.readFileSync(filename).toString();
 
         const size = Buffer.byteLength(responseAsString);
@@ -67,7 +67,7 @@ export function LocalCacheSync(func : Function, cacheSeconds : number, descripti
     else
     {
         logMessage += " 🟠 " + description + " not in cache, got from API";
-        logMessage += "\t⏱️ Age is " + cacheAge + " seconds."
+        logMessage += "\t⏱️ Age is " + generateCacheAgeMessage(cacheAge)
         
         let result = func();
         let responseAsJSON = JSON.stringify(result)
@@ -80,6 +80,47 @@ export function LocalCacheSync(func : Function, cacheSeconds : number, descripti
         console.log(logMessage);
         return result;
     }
+}
+
+function generateCacheAgeMessage(seconds : number) : string
+{
+    // Returns a string message that displays the cache age. E.g. 
+    // 153 seconds
+    // 14 hours
+    // 17 days etc..
+    let minutes = 0;
+    let hours = 0;
+    let days = 0;
+    
+    if(seconds >= 60)
+    {
+        minutes = Math.floor(seconds / 60);
+
+        if(minutes >= 60)
+        {
+            hours = Math.floor(minutes / 60)
+            minutes = minutes - hours * 60;
+        }
+
+        seconds = seconds - (hours * 60 * 60) - minutes * 60;
+
+        if(hours >= 24)
+        {
+            days = Math.floor(hours / 24);
+            hours = hours - days * 24;
+        }
+    }
+
+    if(days > 0)
+        return days + 'd ' + hours + "h " + minutes + "m " + seconds + "s."
+
+    if(hours > 0)
+        return hours + "h " + minutes + "m " + seconds + "s."
+
+    if(minutes > 0)
+        return minutes + "m " + seconds + "s."
+    
+    return seconds + "s."
 }
 
 function getSecondsAge(input : Date) : number
