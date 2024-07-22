@@ -1,0 +1,24 @@
+<script>
+    window.onload = runWhenLoaded;
+
+    async function runWhenLoaded()
+    {
+        updateElementWithId('output-1','My name is jef')
+    }
+
+    // Helper function to update a single elements
+    function updateElementWithId(id,text)
+    {
+        let element = document.getElementById(id);
+
+        if(element)
+            element.innerText = text;
+        else
+            console.error('No DOM element found with id:',id)
+    }
+
+    
+</script>
+
+<h1>Hello world</h1>
+<p id="output-1">Test</p>

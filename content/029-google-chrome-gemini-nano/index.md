@@ -6,8 +6,13 @@ title: Google Chrome Gemini Nano
 date: 20240626
 description : Google Chrome Gemini Nano.
 category : AI 
-published : false
+published : true
 ---
+
+Steps needed:
+- Download latest version of chrome
+- Goto chrome://flags and enable "Prompt API for Gemini Nano" option
+
 
 Download latest version of [Chrome Canary](https://www.google.com/intl/en_in/chrome/canary/)
 
