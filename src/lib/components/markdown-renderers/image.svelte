@@ -78,6 +78,7 @@
         margin-top: 2rem;
         margin-bottom: 1rem;;
         display: block;
+        outline: 1px solid rgb(127,127,127);
     }
 
     @media (max-aspect-ratio: 1/1) 
