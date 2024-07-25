@@ -9,39 +9,153 @@ category : AI
 published : true
 ---
 
-Steps needed:
-- Download latest version of chrome
+# Gemini Nano
+Google's LLM, Gemini Nano, has been brought to the browser starting from version 126.
+Developers can already get a taste by [downloading latest version of Chrome Canary](https://www.google.com/intl/en_in/chrome/canary/)
 
-- Goto chrome://flags and enable "Prompt API for Gemini Nano" option
-- #optimization-guide-on-device-model - set it to Enabled BypassPerfRequirement
+## How to get started? 
 
-- Now, visit chrome://components and search for Optimization Guide On Device Model component. 
+- Download the latest version of [Chrome Canary](https://www.google.com/intl/en_in/chrome/canary/)
+- Navigate to **chrome://flags** and enable the **Prompt API for Gemini Nano** flag.
+- Also enable the **optimization-guide-on-device-model** by setting it to Enabled BypassPerfRequirement
+- Next up, visit **chrome://components** and search for **Optimization Guide On Device Model component**. Make sure to update this to the latest version.
 
-Note: I couldn't get the ai component to work on my Lenovo Legion laptop.
-It did however work on a Lenovo Thinkpad.
+And that's it, you should be all set!
 
-+-
-Download latest version of [Chrome Canary](https://www.google.com/intl/en_in/chrome/canary/)
+> I couldn't get the AI component to work on my Lenovo Legion laptop.
+It did however work on a Lenovo Thinkpad. So depending on what machine you're tryin this on, your mileage may vary.
 
-Navigate to the flag overview by going to the following url:
+## Did it work? 
+We can validate the AI component by running the following in the browser console:
 
+```js
+    await ai.canCreateGenericSession()
 ```
-    chrome://flags
+
+![When this method reports readily, you are ready to go! [medium]](images/ai-available.png)
+
+
+## Creating a chatbot demo
+### HTML
+Using this local AI model we can create a crude chatbot. 
+Let's do this in vanilla html/js/css, so we can all contain it in a single file.
+You can also find the [end result on Github](https://github.com/jefmeijvis/www.jefmeijvis.com/blob/master/content/029-google-chrome-gemini-nano/demo.html).
+We start out by defining our markup like so:
+
+```html
+    <h1>Chrome Canary AI demo</h1>
+
+    <!-- Check to see if we're using a browser that can use AI features -->
+    <p >window.ai.canCreateTextSession(): <span id="check"></span></p>
+
+    <!-- A list to store the chat history -->
+    <ul id="chat"></ul>
+
+    <!-- Input field to type a message -->
+    <input id="textbox" type="text"/>
+
+    <!-- A button to send the message -->
+    <button onclick="sendMessage()">Send</button>
 ```
 
+And continue by adding a **script** tag so that we can interact with the chatbot. 
 
+### Javascript
+```html
+<script>
+    window.onload = runWhenLoaded;
+    let sesion
 
-Enable **Prompt API for Gemini Nano** setting
+    async function runWhenLoaded()
+    {
+        updateElementWithId('check', await window.ai.canCreateTextSession());
+        session = await window.ai.createTextSession();
+    }
 
-> Enables the exploratory Prompt API, allowing you to send natural language instructions to a built-in large language model (Gemini Nano in Chrome). Exploratory APIs are designed for local prototyping to help discover potential use cases, and may never launch. These explorations will inform the built-in AI roadmap [1]. This API is primarily intended for natural language processing tasks such as summarizing, classifying, or rephrasing text. It is NOT suitable for use cases that require factual accuracy (e.g. answering knowledge questions). You must comply with our Prohibited Use Policy [2] which provides additional details about appropriate use of Generative AI. – Mac, Windows, Linux, ChromeOS, Android, Lacros
+    async function sendMessage()
+    {
+        let startTimestamp = performance.now();
+        let textbox = document.getElementById('textbox');
+        let message = textbox.value;
+        textbox.value = "";
 
+        let child = document.createElement('li');
+        child.innerHTML = '<span class="human-chat-bubble">YOU </span>' + message;
+        document.getElementById('chat').appendChild(child);
 
-(1) https://developer.chrome.com/docs/ai/built-in?hl=nl
+        let response = await session.prompt(message);
+        console.log(response);
+        let duration = Math.round(performance.now() - startTimestamp);
+        let aiResponse = document.createElement('li');
+        aiResponse.innerHTML = '<span class="ai-chat-bubble">AI </span>' + response + "<span class='timestamp'>" + duration + "ms.</span>";
+        document.getElementById('chat').appendChild(aiResponse);
+    }
 
-(2) https://policies.google.com/terms/generative-ai/use-policy
+    // Helper function to update a single elements
+    function updateElementWithId(id,text)
+    {
+        let element = document.getElementById(id);
 
-Sign up for the preview
+        if(element)
+        {
+            element.innerText = text;
+        }
+        else
+            console.error('No DOM element found with id:',id)
+    }
+</script>
+```
 
+### CSS
+Adding a little bit of style allows us to visualize if a chat message is from ourselves or from the AI. 
+
+```html
+<style>
+    .timestamp
+    {
+        font-size: .7rem;
+        opacity: 50%;
+    }
+
+    .ai-chat-bubble,.human-chat-bubble
+    {
+        list-style: none;
+    }
+
+    .ai-chat-bubble
+    {
+        background-color: rgb(255, 163, 163);
+    }
+
+    .human-chat-bubble
+    {
+        background-color: rgb(179, 179, 255);
+    }
+
+    body
+    {
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    span
+    {
+        font-weight: bold;
+    }
+</style>
+```
+### Everything together
+And there we go, this way we have an interactive chatbot which runs in the browser.
+For reference, I'm running this on a Lenovo Thinkpad [13th Gen Intel i7-1355U](https://www.cpubenchmark.net/cpu.php?id=5317&cpu=Intel+Core+i7-1355U) with 32Gb of RAM. 
+You can see from the results here below that a short single word (or number) takes a good second to generate. 
+For longer responses you can see it approaches 10 seconds fairly quick.
+With similar laptops you can't really use this model for longer or more complicated usecases. 
+However, with the continuous increase in available compute, and the models getting more and more efficient, this can only become more and more impressive in the future. 
+
+![A small chat session requires some patience on my device [medium]](images/chat-example-light.png)
+
+As mentioned before, you can find the source code for the chat application on [Github](https://github.com/jefmeijvis/www.jefmeijvis.com/blob/master/content/029-google-chrome-gemini-nano/demo.html). Please make sure you're running Chrome Canary 126 or later, with the correct flags enabled.
 
 ## Further reading and relevant links
 - https://muthuishere.medium.com/ai-within-your-browser-exploring-google-chromes-new-prompt-api-a5c2c6bd5b4c
+- https://syntackle.com/blog/window-ai-in-chrome/
+
