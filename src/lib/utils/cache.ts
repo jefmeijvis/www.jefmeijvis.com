@@ -7,7 +7,16 @@ export async function LocalCache(func : Function, cacheSeconds : number, descrip
     let filename : string = generateFilename('async-' + description);
 
     let [cacheStatusOk,cacheAge] = cacheIsOk(filename,cacheSeconds);
-
+    if(description.length > 30)
+    {
+        description = description.slice(0,27)
+        description += '...'
+    }
+    else
+    {
+        description = description.padEnd(30,' ')
+    }
+    
     if(cacheStatusOk)
     {
         logMessage += " 🟢 Found general request [" + description + "] in cache.";
