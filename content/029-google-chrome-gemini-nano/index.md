@@ -10,11 +10,17 @@ published : true
 ---
 
 # Gemini Nano
-Google's LLM, Gemini Nano, has been brought to the browser starting from version 126.
-Developers can already get a taste by [downloading latest version of Chrome Canary](https://www.google.com/intl/en_in/chrome/canary/)
+Google is bringing Gemini Nano to the browser!
+As of version 126 of Chrome, Google embedded the nano version of their own large language model in its browser. 
+This means that websites can use AI features on the local system, without requiring an internet connection.
+The LLM being a small and efficient version has both advantages and disavantages. 
+No specialized hardware is required, as it can run locally on your average laptop.
+However the results of the model can also be considered 'nano', as we will see further down in this article. 
+
+The LLM is available in Chrome Canary, the version of Chrome for developers which contains daily updates and early releases. 
+Note that not all features in Canary will make it to the production version of Chrome. 
 
 ## How to get started? 
-
 - Download the latest version of [Chrome Canary](https://www.google.com/intl/en_in/chrome/canary/)
 - Navigate to **chrome://flags** and enable the **Prompt API for Gemini Nano** flag.
 - Also enable the **optimization-guide-on-device-model** by setting it to Enabled BypassPerfRequirement
@@ -28,12 +34,32 @@ It did however work on a Lenovo Thinkpad. So depending on what machine you're tr
 ## Did it work? 
 We can validate the AI component by running the following in the browser console:
 
-```js
+```js   
+    // Check if our browser supports AI features
     await ai.canCreateGenericSession()
 ```
 
 ![When this method reports readily, you are ready to go! [medium]](images/ai-available.png)
 
+## Sending our first prompt
+Let's open the javascript console by pressing F12.
+Creating a generic AI session allows us to prompt Gemini Nano.  
+
+```js
+    // Create a generic session
+    let session = await ai.createGenericSession();
+
+    // Prompt the ai session with a question
+    let result = await session.prompt('What is Google Chrome?');
+
+    // Print the result to the console
+    console.log(result)
+    // Output: Google Chrome is a free and open-source web browser developed 
+    // and marketed by Google. It is the most popular web browser in the world, 
+    // and is used on billions of devices worldwide. Chrome is based on ...
+```
+
+![Sending our first prompt via the browser console [medium]](images/ai-prompt.png)
 
 ## Creating a chatbot demo
 ### HTML
