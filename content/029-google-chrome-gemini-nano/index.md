@@ -18,7 +18,7 @@ No specialized hardware is required, as it can run locally on your average lapto
 However the results of the model can also be considered 'nano', as we will see further down in this article. 
 
 The LLM is available in Chrome Canary, the version of Chrome for developers which contains daily updates and early releases. 
-Note that not all features in Canary will make it to the production version of Chrome. 
+Note that not all features in Canary will make it to the production version of Chrome, so who knows if this will every be production ready. 
 
 ## How to get started? 
 - Download the latest version of [Chrome Canary](https://www.google.com/intl/en_in/chrome/canary/)
@@ -175,7 +175,7 @@ For reference, I'm running this on a Lenovo Thinkpad [13th Gen Intel i7-1355U](h
 You can see from the results here below that a short single word (or number) takes a good second to generate. 
 For longer responses you can see it approaches 10 seconds fairly quick.
 With similar laptops you can't really use this model for longer or more complicated usecases. 
-However, with the continuous increase in available compute, and the models getting more and more efficient, this can only become more and more impressive in the future. 
+However, with the continuous increase in available compute, and the models getting more and more efficient, this can only become more impressive in the future. 
 
 ![A small chat session requires some patience on my device [medium]](images/chat-example-light.png)
 
