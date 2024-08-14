@@ -21,7 +21,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/supabase-js": "^2.45.0",
+		"@supabase/supabase-js": "^2.45.1",
 		"@sveltejs/adapter-static": "^3.0.2",
 		"@types/node": "^22.0.2",
 		"bufferutil": "^4.0.8",
