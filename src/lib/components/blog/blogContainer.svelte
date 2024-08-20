@@ -30,7 +30,7 @@
 
 {#if searchString}
     <p>
-        <i>Searching for <b>{searchString}</b> gave {visiblePosts.length} result(s):</i>
+        <i>Searching for <b>{searchString}</b> returned {visiblePosts.length} {visiblePosts.length == 1 ? 'result' : 'results'}:</i>
     </p>
 {/if}
 
