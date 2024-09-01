@@ -26,7 +26,7 @@
 		"@types/node": "^22.3.0",
 		"bufferutil": "^4.0.8",
 		"front-matter": "^4.0.2",
-		"mathlifier": "^1.3.5",
+		"mathlifier": "^2.0.1",
 		"svelte-check": "^3.8.5",
 		"svelte-markdown": "^0.4.1",
 		"utf-8-validate": "^6.0.4",
