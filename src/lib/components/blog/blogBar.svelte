@@ -24,11 +24,11 @@
         </div>
 
 
-        <button on:click={()=>toggleView(false)}>
+        <button data-umami-event="button-searchbar-grid" on:click={()=>toggleView(false)}>
             <img style="filter:{$theme == 'light' ? 'none' : 'invert()'}" alt="grid" src="/icons/grid.png"/>
         </button>
 
-        <button on:click={()=>toggleView(true)}>
+        <button data-umami-event="button-searchbar-list" on:click={()=>toggleView(true)}>
             <img style="filter:{$theme == 'light' ? 'none' : 'invert()'}" alt="list" src="/icons/list.png"/>
         </button>
     </div>

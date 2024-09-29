@@ -7,7 +7,7 @@
     export let toggleMenu : MouseEventHandler<HTMLButtonElement>;
 </script>
 
-<button style="{$theme=='light' ? 'filter:invert()' : ''}" in:fade={{duration:200}} on:click={toggleMenu}>
+<button data-umami-event="button-navbar-mobile-toggle-theme" style="{$theme=='light' ? 'filter:invert()' : ''}" in:fade={{duration:200}} on:click={toggleMenu}>
     <img alt="button to open the menu" src="/icons/{menuOpen ? 'close' : 'menu'}.png"/>
 </button>
 

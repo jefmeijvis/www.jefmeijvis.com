@@ -3,7 +3,7 @@
 
 </script>
 
-<button title="Toggle theme" class="theme" on:click={()=>$theme = ($theme == "light" ? 'dark' : 'light')}>
+<button data-umami-event="button-navbar-desktop-toggle-theme" title="Toggle theme" class="theme" on:click={()=>$theme = ($theme == "light" ? 'dark' : 'light')}>
     <img class="theme-img" style="{$theme=='dark' ? 'filter:invert()' : ''}" alt="theme toggle" src={$theme == 'dark' ? '/icons/light.png' : '/icons/dark.png'}/>
 </button>
 
