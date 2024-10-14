@@ -8,7 +8,8 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"prepare": "svelte-kit sync"
+		"prepare": "svelte-kit sync",
+		"update" : "pnpm update"
 	},
 	"devDependencies": {
 		"@sveltejs/kit": "^2.6.1",

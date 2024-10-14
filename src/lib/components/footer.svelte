@@ -20,15 +20,15 @@
         if(hours < 1)
         {
             let minutes = Math.ceil(hours * 60);
-            timeAgo = ', or ' + minutes + ' minutes ago'
+            timeAgo = ', which was ' + minutes + ' minutes ago'
         }
         else if(hours > 1 && hours < 2)
         {
-            timeAgo = ', or 1 hour ago'
+            timeAgo = ', which was 1 hour ago'
         }
         else
         {
-            timeAgo = ', or ' + Math.ceil(hours) + ' hours ago'
+            timeAgo = ', which was ' + Math.ceil(hours) + ' hours ago'
         }
     }
 
@@ -167,6 +167,9 @@
         {
             width : 100%;
             flex-direction: column;
+            border-bottom: 1px rgb(127,127,127) solid;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
         }
 
         .block
