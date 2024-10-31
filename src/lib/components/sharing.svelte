@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { goto } from "$app/navigation";
     import type { Blogpost } from "$lib/domain/blogpost/blogpost";
     import { Text } from "$lib/utils/text";
     import { fade } from "svelte/transition";
@@ -30,6 +29,15 @@
         window.open(text,'_blank')
     }
 
+    async function buttonBlueSky()
+    {
+        let text = "Sharing @jefmeijvis.com " + Text.desluggify(post.title);
+        text = text.replaceAll(" ","%20")
+        text = "https://bsky.app/intent/compose?text=" + text;
+        text+= " ==> " + "https://www.jefmeijvis.com/blog/" + post.path;
+        window.open(text,'_blank')
+    }
+
     async function buttonMastodon()
     {
         let url = "https://www.jefmeijvis.com/blog/" + post.path;
@@ -41,6 +49,12 @@
 </script>
 
 <div class="sharing-component">
+        <button 
+            style="{$theme == 'light' ? ''  :'filter:invert()'}"
+            on:click={buttonBlueSky} 
+            title="Share this article on BlueSky">
+            <img alt="PDF logo" src="/icons/bluesky.png"/>
+        </button>
         <button 
             style="{$theme == 'light' ? ''  :'filter:invert()'}"
             on:click={buttonTwitter} 
@@ -72,6 +86,11 @@
 </div>
 
 <style>
+    span
+    {
+        background-color: white;
+        padding: .5rem;
+    }
     img
     {
         width : 1.2rem;
@@ -96,6 +115,7 @@
     button:hover
     {
         opacity: 100%;
+        transform: scale(1.2);
     }
 
     @media (max-aspect-ratio: 1/1) 
