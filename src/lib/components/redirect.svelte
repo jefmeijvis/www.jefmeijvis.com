@@ -2,8 +2,12 @@
 	import { goto } from "$app/navigation";
 	import { onDestroy } from "svelte";
 
-    export let href : string = "/"
-    export let timer : number = 10_000
+    interface Props {
+        href?: string;
+        timer?: number;
+    }
+
+    let { href = "/", timer = $bindable(10_000) }: Props = $props();
 
     let timeout : NodeJS.Timeout = setTimeout(countdown,1000);
 

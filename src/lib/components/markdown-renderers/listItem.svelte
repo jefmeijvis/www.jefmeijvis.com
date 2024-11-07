@@ -1,4 +1,9 @@
-<li>bob <slot></slot></li>
+<script>
+    /** @type {{children?: import('svelte').Snippet}} */
+    let { children } = $props();
+</script>
+
+<li>bob {@render children?.()}</li>
 
 <style>
     li

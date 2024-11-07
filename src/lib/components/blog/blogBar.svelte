@@ -2,9 +2,13 @@
     import type { ChangeEventHandler } from "svelte/elements";
     import { theme } from "../../../stores";
 
-    export let toggleView : Function;
-    export let title : string = "Articles";
-    export let updateSearchString : ChangeEventHandler<HTMLElement>;
+    interface Props {
+        toggleView: Function;
+        title?: string;
+        updateSearchString: ChangeEventHandler<HTMLElement>;
+    }
+
+    let { toggleView, title = "Articles", updateSearchString }: Props = $props();
 
 
 </script>
@@ -19,16 +23,16 @@
     <div class="right">
 
         <div class="search">
-            <input on:keyup={updateSearchString} placeholder="Search" type="text">
+            <input onkeyup={updateSearchString} placeholder="Search" type="text">
             <img style="filter:{$theme == 'light' ? 'none' : 'invert()'}" class="search-image" alt="magnifying glass" src="/icons/search.png"/>
         </div>
 
 
-        <button data-umami-event="button-searchbar-grid" on:click={()=>toggleView(false)}>
+        <button data-umami-event="button-searchbar-grid" onclick={()=>toggleView(false)}>
             <img style="filter:{$theme == 'light' ? 'none' : 'invert()'}" alt="grid" src="/icons/grid.png"/>
         </button>
 
-        <button data-umami-event="button-searchbar-list" on:click={()=>toggleView(true)}>
+        <button data-umami-event="button-searchbar-list" onclick={()=>toggleView(true)}>
             <img style="filter:{$theme == 'light' ? 'none' : 'invert()'}" alt="list" src="/icons/list.png"/>
         </button>
     </div>

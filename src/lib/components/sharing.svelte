@@ -4,8 +4,12 @@
     import { fade } from "svelte/transition";
     import { theme } from "../../stores";
 
-    export let post : Blogpost
-    let buttonCopyActive : boolean = false;
+    interface Props {
+        post: Blogpost;
+    }
+
+    let { post }: Props = $props();
+    let buttonCopyActive : boolean = $state(false);
 
     async function buttonPDF()
     {
@@ -51,31 +55,31 @@
 <div class="sharing-component">
         <button 
             style="{$theme == 'light' ? ''  :'filter:invert()'}"
-            on:click={buttonBlueSky} 
+            onclick={buttonBlueSky} 
             title="Share this article on BlueSky">
             <img alt="PDF logo" src="/icons/bluesky.png"/>
         </button>
         <button 
             style="{$theme == 'light' ? ''  :'filter:invert()'}"
-            on:click={buttonTwitter} 
+            onclick={buttonTwitter} 
             title="Share this article via X">
             <img alt="x (formerly Twitter) logo" src="/icons/x.png"/>
         </button>
         <button 
             style="{$theme == 'light' ? ''  :'filter:invert()'}"
-            on:click={buttonMastodon} 
+            onclick={buttonMastodon} 
             title="Share this article via Mastodon">
             <img alt="x (formerly Twitter) logo" src="/icons/mastodon.svg"/>
         </button>
         <button 
          style="{$theme == 'light' ? ''  :'filter:invert()'}"
-            on:click={buttonPDF} 
+            onclick={buttonPDF} 
             title="Download this article as PDF">
             <img alt="PDF logo" src="/icons/pdf.png"/>
         </button>
         <button 
             style="{$theme == 'light' ? ''  :'filter:invert()'}"
-            on:click={buttonCopy} 
+            onclick={buttonCopy} 
             title="Copy link to clipboard">
             {#if buttonCopyActive}
                 <span in:fade>COPIED TO CLIPBOARD</span>

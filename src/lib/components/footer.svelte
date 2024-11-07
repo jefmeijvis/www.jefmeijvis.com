@@ -4,9 +4,13 @@
     import { Text } from "$lib/utils/text";
     import { onMount } from "svelte";
 
-    export let blogposts : Blogpost[];
-    export let timestamp : Date;
-    export let timeAgo : string = '';
+    interface Props {
+        blogposts: Blogpost[];
+        timestamp: Date;
+        timeAgo?: string;
+    }
+
+    let { blogposts, timestamp, timeAgo = $bindable('') }: Props = $props();
 
     function getCurrentDate() : string
     {

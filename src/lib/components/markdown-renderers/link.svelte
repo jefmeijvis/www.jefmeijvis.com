@@ -1,8 +1,13 @@
 <script lang="ts">
-    export let href = ''
-    export let title : string = ""
+  interface Props {
+    href?: string;
+    title?: string;
+    children?: import('svelte').Snippet;
+  }
 
-    let target : string = "_blank";
+  let { href = '', title = "", children }: Props = $props();
+
+    let target : string = $state("_blank");
 
 
     if(href.includes('www.jefmeijvis.com') || href.includes('localhost:'))
@@ -14,7 +19,7 @@
   </script>
   
   <a {target} {href} {title}>
-    <slot></slot>
+    {@render children?.()}
   </a>
 
 

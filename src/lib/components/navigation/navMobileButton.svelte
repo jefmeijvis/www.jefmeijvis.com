@@ -1,11 +1,16 @@
 <script lang="ts">
     import type { MouseEventHandler } from "svelte/elements";
 
-    export let onClick : MouseEventHandler<HTMLButtonElement>;
+    interface Props {
+        onClick: MouseEventHandler<HTMLButtonElement>;
+        children?: import('svelte').Snippet;
+    }
+
+    let { onClick, children }: Props = $props();
 </script>
 
-<button on:click={onClick}>
-    <slot></slot>
+<button onclick={onClick}>
+    {@render children?.()}
 </button>
 
 

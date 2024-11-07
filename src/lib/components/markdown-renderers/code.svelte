@@ -1,14 +1,20 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
     import { codeToHtml} from 'shiki'
     import { theme } from '../../../stores';
     import { fade, fly } from 'svelte/transition';
 
-    export let lang : string = "svelte"
-    export let text : string;
+  interface Props {
+    lang?: string;
+    text: string;
+  }
 
-    let themeOption : string;
-    let options : any;
-    let copied : boolean = false
+  let { lang = "svelte", text }: Props = $props();
+
+    let themeOption : string = $state();
+    let options : any = $state();
+    let copied : boolean = $state(false)
 
     function formatLanguage(input : string) : string
     {
@@ -38,14 +44,14 @@
       setTimeout(() => {copied = false}, 1000);
     }
 
-    $: {
+    run(() => {
       themeOption = $theme == 'light' ? "github-light" : "github-dark";
       options = 
       {
           lang: lang,
           theme: themeOption
       }
-    }
+    });
 
 </script>
 
@@ -58,7 +64,7 @@
       {#if copied}
         <p in:fade={{duration:100}} class="copy-message">COPIED TO CLIPBOARD</p>
       {:else}
-        <button in:fade={{duration:100}} title="Copy code" on:click={copy}>
+        <button in:fade={{duration:100}} title="Copy code" onclick={copy}>
           <img style={getImageStyle($theme)} alt="copy source code top clipboard" src="/icons/copy.png" />
         </button>
       {/if}

@@ -1,6 +1,10 @@
 <script lang='ts'>
     import {display} from 'mathlifier';
-    export let text : string;
+    interface Props {
+        text: string;
+    }
+
+    let { text }: Props = $props();
 </script>
 
 <svelte:head>

@@ -7,7 +7,8 @@
     import { theme } from "../../../stores";
     import Sharing from "$lib/components/sharing.svelte";
 
-	export let data;
+    /** @type {{data: any}} */
+    let { data } = $props();
 </script>
 
 <div id="article">

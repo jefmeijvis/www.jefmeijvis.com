@@ -9,7 +9,7 @@
     import NavMobileHamburger from "./navMobileHamburger.svelte";
     import NavMobileButton from "./navMobileButton.svelte";
     import { theme } from "../../../stores";
-    let menuOpen : boolean = false;
+    let menuOpen : boolean = $state(false);
 
     let links : Link[] = [];
     AddLink(links,"RSS","/rss.xml");

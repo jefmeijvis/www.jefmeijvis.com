@@ -2,8 +2,12 @@
     import Code from "./code.svelte";
     import Math from "./math.svelte";
 
-    export let lang : string;
-    export let text : string;
+    interface Props {
+        lang: string;
+        text: string;
+    }
+
+    let { lang, text }: Props = $props();
 </script>
 
 {#if lang=='math'}

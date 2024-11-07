@@ -3,7 +3,11 @@
 	import { onDestroy } from "svelte";
 
     let href : string = "/"
-    export let timer : number = 10_000
+    interface Props {
+        timer?: number;
+    }
+
+    let { timer = $bindable(10_000) }: Props = $props();
 
     let timeout : NodeJS.Timeout = setTimeout(countdown,1000);
 

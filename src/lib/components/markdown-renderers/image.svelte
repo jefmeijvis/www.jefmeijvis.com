@@ -2,9 +2,13 @@
     import { page } from "$app/stores";
     import { theme } from "../../../stores";
 
-    export let href = ''
-    export let title : string = ""
-    export let text = ''
+  interface Props {
+    href?: string;
+    title?: string;
+    text?: string;
+  }
+
+  let { href = $bindable(''), title = $bindable(""), text = $bindable('') }: Props = $props();
 
     function getUrl(theme : string)
     {

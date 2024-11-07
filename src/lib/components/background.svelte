@@ -1,6 +1,6 @@
 <script lang="ts">
     import { theme } from "../../stores";
-    let y : number;
+    let y : number = $state();
 
     function getTransform(input : number)
     {

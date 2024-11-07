@@ -22,7 +22,7 @@
         width: 100%;
         filter:grayscale();
         outline: 1px rgb(127,127,127) solid;
-        border-radius: 100%;;
+        border-radius: 100%;
     }
 
     .left

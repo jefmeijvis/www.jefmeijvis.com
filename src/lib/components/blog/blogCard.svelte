@@ -5,8 +5,12 @@
     import { Text } from "$lib/utils/text";
     import { goto } from "$app/navigation";
 
-    export let post: Blogpost;
-    export let index : number
+    interface Props {
+        post: Blogpost;
+        index: number;
+    }
+
+    let { post, index }: Props = $props();
 
     function click()
     {
@@ -15,7 +19,7 @@
 </script>
 
 
-<div tabindex="{index}" on:keypress={click} role="button" on:click={click} class="big-button">
+<div tabindex="{index}" onkeypress={click} role="button" onclick={click} class="big-button">
     <div class="top">
         <div class="top-left">
             <p class="date">{BlogpostUtils.formatDateForCard(post.date)}</p>

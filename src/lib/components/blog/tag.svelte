@@ -1,7 +1,11 @@
 <script lang="ts">
     import type { Tag } from "./tags";
 
-    export let tag : Tag;
+    interface Props {
+        tag: Tag;
+    }
+
+    let { tag }: Props = $props();
 </script>
 
 <button style="color:{tag.color}">

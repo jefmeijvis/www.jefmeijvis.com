@@ -3,10 +3,14 @@
     import BlogContainer from "$lib/components/blog/blogContainer.svelte"
     import Introduction from "$lib/components/introduction.svelte";
     import { sortByViewsDescending } from "$lib/domain/blogpost/sorting.js";
-    export let data;
+    interface Props {
+        data: any;
+    }
 
-    let listview : boolean = false;
-    let searchString : string;
+    let { data }: Props = $props();
+
+    let listview : boolean = $state(false);
+    let searchString : string = $state();
 
     function changeSearchString(event : Event)
     {

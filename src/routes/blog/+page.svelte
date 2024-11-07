@@ -3,12 +3,16 @@
     import BlogContainer from "$lib/components/blog/blogContainer.svelte";
     import { getDaysSince } from "$lib/utils/date.js";
 
-    export let data;
+    interface Props {
+        data: any;
+    }
+
+    let { data }: Props = $props();
 
     let days = getDaysSince('10/16/2021');
     let daysBetween = Math.floor(days / data.blogposts.length);
-    let listview : boolean = false;
-    let searchString : string;
+    let listview : boolean = $state(false);
+    let searchString : string = $state();
 
     function changeSearchString(event : Event)
     {

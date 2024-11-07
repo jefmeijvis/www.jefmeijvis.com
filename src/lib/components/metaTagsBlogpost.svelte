@@ -2,7 +2,11 @@
     import type { Blogpost } from "$lib/domain/blogpost/blogpost";
     import {Text} from "$lib/utils/text"
 
-    export let post : Blogpost;
+    interface Props {
+        post: Blogpost;
+    }
+
+    let { post }: Props = $props();
     let title = Text.desluggify(post.title) + ' - Jef Meijvis';
 </script>
 

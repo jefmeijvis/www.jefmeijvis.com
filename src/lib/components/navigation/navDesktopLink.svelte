@@ -1,7 +1,11 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import type { Link } from "./link";
-    export let link : Link
+    interface Props {
+        link: Link;
+    }
+
+    let { link }: Props = $props();
 
     function getSelectedStyle(link : string)
     {

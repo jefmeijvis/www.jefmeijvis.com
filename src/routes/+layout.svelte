@@ -5,7 +5,12 @@
     import Navbar from "$lib/components/navigation/navbar.svelte";
     import { theme } from "../stores";
 
-    export let data;
+    interface Props {
+        data: any;
+        children?: import('svelte').Snippet;
+    }
+
+    let { data, children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -16,7 +21,7 @@
 <Navbar></Navbar>
 <Background></Background>
 <div id="page-container" class="page-container">
-    <slot></slot>
+    {@render children?.()}
 </div>
 <Footer timestamp={data.timestamp} blogposts={data.blogposts}></Footer>
 

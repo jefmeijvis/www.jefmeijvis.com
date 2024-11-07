@@ -1,7 +1,11 @@
 <script lang="ts">
     import { theme } from "../../stores";
 
-    export let url : string;
+    interface Props {
+        url: string;
+    }
+
+    let { url }: Props = $props();
 
     function link()
     {
@@ -17,13 +21,13 @@
 
 <div class="container">
     <div class="element">
-        <button title="View the source for this page on Github" on:click={link} class:button-light={$theme == 'light'} class:button-dark={$theme != 'light'}>
+        <button title="View the source for this page on Github" onclick={link} class:button-light={$theme == 'light'} class:button-dark={$theme != 'light'}>
             <span>View this page on GitHub</span>
             <img style="{$theme == 'light' ? ''  :'filter:invert()'}" alt="GitHub logo" src="/icons/github.png"/>
         </button>
     </div>
     <div class="element">
-        <button title="Buy me a coffee via ko-fi.com" on:click={linkCoffee} class:button-light={$theme == 'light'} class:button-dark={$theme != 'light'}>
+        <button title="Buy me a coffee via ko-fi.com" onclick={linkCoffee} class:button-light={$theme == 'light'} class:button-dark={$theme != 'light'}>
             <span>Buy me a coffee</span>
             <img style="{$theme == 'light' ? ''  :'filter:invert()'}" alt="GitHub logo" src="/icons/coffee.png"/>
         </button>
