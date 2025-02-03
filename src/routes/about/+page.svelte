@@ -23,6 +23,7 @@
 
 <div class="container">
     <img class="picture" alt="Event" src="/images/about/talk-1.jpeg"/>
+    <img class="picture" alt="Event" src="/images/about/talk-4.jpeg"/>
     <img class="picture" alt="Event" src="/images/about/talk-3.jpeg"/>
     <img class="picture" alt="Event" src="/images/about/event.jpg"/>
     <img class="picture" alt="Event" src="/images/about/company-event-2023.jpg"/>
