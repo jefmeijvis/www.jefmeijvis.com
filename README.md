@@ -14,3 +14,5 @@ The following node packages are essential to the current setup:
 # 💻 Contributing
 Feel free to open an issue or submit a PR if you feel like something needs to be different! 
 All the content is written in markdown and is stored in this repository under [/content](https://github.com/jefmeijvis/www.jefmeijvis.com/tree/master/content)
+
+# 📝 emoticon test
