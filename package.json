@@ -33,5 +33,13 @@
 		"utf-8-validate": "^6.0.5",
 		"vite-plugin-restart": "^0.4.1",
 		"vite-plugin-static-copy": "^2.0.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@sveltejs/kit",
+			"bufferutil",
+			"esbuild",
+			"utf-8-validate"
+		]
 	}
 }
