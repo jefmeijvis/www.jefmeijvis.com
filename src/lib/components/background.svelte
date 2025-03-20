@@ -1,6 +1,6 @@
 <script lang="ts">
     import { theme } from "../../stores";
-    let y : number = $state();
+    let y : number = $state(0);
 
     function getTransform(input : number)
     {
@@ -28,7 +28,8 @@
         bottom:0;
         pointer-events: none;
         overflow: hidden;
-        z-index: -1
+        z-index: -1;
+        transition: none;
     }
 
     p
