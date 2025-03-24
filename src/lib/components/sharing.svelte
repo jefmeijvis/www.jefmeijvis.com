@@ -23,6 +23,7 @@
         setTimeout(()=>buttonCopyActive = false, 2000);
     }
 
+    /*
     async function buttonTwitter()
     {
         let text = "Sharing: " + Text.desluggify(post.title);
@@ -32,6 +33,7 @@
 
         window.open(text,'_blank')
     }
+    */
 
     async function buttonBlueSky()
     {
@@ -58,12 +60,6 @@
             onclick={buttonBlueSky} 
             title="Share this article on BlueSky">
             <img alt="PDF logo" src="/icons/bluesky.png"/>
-        </button>
-        <button 
-            style="{$theme == 'light' ? ''  :'filter:invert()'}"
-            onclick={buttonTwitter} 
-            title="Share this article via X">
-            <img alt="x (formerly Twitter) logo" src="/icons/x.png"/>
         </button>
         <button 
             style="{$theme == 'light' ? ''  :'filter:invert()'}"
