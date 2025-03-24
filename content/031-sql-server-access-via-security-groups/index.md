@@ -5,18 +5,18 @@ image : /post/031/logo.png
 title: SQL Server access via security groups
 date: 20250313
 description : SQL Server access via security groups
-category : Azure
-published : false
+category : Azure, Security
+published : true
 ---
 
 # Secure and Simplify SQL Database Access with Entra ID Security Groups  
 
-Managing database access for a team can be a hassle—granting individual logins, keeping track of permissions, and ensuring security best practices. Fortunately, with **Entra ID Security Groups**, you can streamline access management while keeping things secure.  
+Managing database access for a team can be a hassle—granting individual logins, keeping track of permissions, and ensuring security best practices. Fortunately, with Entra ID Security Groups, we can streamline access management while keeping things secure.  
 
 ## Why Use Entra ID Security Groups for SQL Access?  
-Instead of assigning permissions per user, you **grant access to a group**. Add or remove team members in Entra ID, and their database access updates automatically—**no more manual user management in SQL Server**.  
+Instead of assigning permissions per user, you grant access to a group. Add or remove team members in Entra ID, and their database access updates automatically. This means no more manual user management in SQL Server.  
 
-This approach ensures:  
+This approach gives us:  
 - **Centralized access management** – Control access in one place (Azure Entra ID).  
 - **Security best practices** – No direct user logins, reducing exposure to credential theft.  
 - **Scalability** – Easily onboard and offboard team members without touching SQL.  
@@ -30,7 +30,7 @@ Before configuring SQL access, create a security group in **Azure Entra ID**:
 2. Navigate to **Microsoft Entra ID** → **Groups**.  
 3. Click **New group** and select:  
    - **Group type**: Security  
-   - **Group name**: `cupido-team` (or your preferred name)  
+   - **Group name**: `jef-meijvis-demo-group` (or your preferred name)  
    - **Membership type**: Assigned or Dynamic (for automated membership)  
 4. Add the necessary team members and create the group.  
 
@@ -38,32 +38,30 @@ Before configuring SQL access, create a security group in **Azure Entra ID**:
 Run the following command to register the security group as a login in your SQL Server:  
 
 ```sql
-CREATE LOGIN [cupido-team] FROM EXTERNAL PROVIDER;
+CREATE LOGIN [jef-meijvis-demo-group] FROM EXTERNAL PROVIDER;
 ```  
 
 ### 3. Grant Database Access and Assign Roles  
 Within each database, create a user for the security group and assign roles:  
 
 ```sql
-CREATE USER [cupido-team] FROM EXTERNAL PROVIDER;
-ALTER ROLE db_datareader ADD MEMBER [cupido-team];
-ALTER ROLE db_datawriter ADD MEMBER [cupido-team];
-ALTER ROLE db_ddladmin ADD MEMBER [cupido-team];
+CREATE USER [jef-meijvis-demo-group] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [jef-meijvis-demo-group];
+ALTER ROLE db_datawriter ADD MEMBER [jef-meijvis-demo-group];
+ALTER ROLE db_ddladmin ADD MEMBER [jef-meijvis-demo-group];
 ```  
 
-Now, everyone in **cupido-team** has the necessary permissions to read, write, and modify database objects.  
+Now, everyone in **jef-meijvis-demo-group** has the necessary permissions to read, write, and modify database objects.
+These roles and permissions of course need to be adjusted to your specific needs.
 
 ## Why Configure Access Like This?  
-Manually managing database users is inefficient and insecure. With Entra ID Security Groups, you:  
+Manually managing database users is inefficient and insecure. With security groups, you:  
 
-- **Avoid credential sprawl** – Users don’t need separate SQL logins.  
-- **Reduce maintenance overhead** – Control access at the group level, not per user.  
-- **Ensure consistency** – All team members get the same permissions instantly.  
-- **Improve compliance** – Auditors love clear, centralized access control.  
+- **Avoid separate credentials** – Users don’t need separate SQL logins.  
+- **Reduce overhead** – Control access at the group level, not per user.  
+- **Consistency** – All team members get the same permissions instantly.  
 
 ## Read More  
 - [Microsoft Docs: Azure AD Authentication for SQL Server](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview)  
-- [Best Practices for Entra ID Groups](https://learn.microsoft.com/en-us/entra/identity/groups-overview)  
 - [Managing Database Permissions in SQL Server](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/)  
-
-By setting up **Entra ID Security Groups for SQL access**, you simplify user management while keeping your database secure and compliant. Give it a try!  
+- [Entra ID Best Practices](https://learn.microsoft.com/en-us/entra/architecture/secure-best-practices)

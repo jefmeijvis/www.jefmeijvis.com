@@ -1,9 +1,12 @@
 import fs from 'fs';
+let globalTimestamp = performance.now();
 
 // Cache the result of a given function on the local filesystem
 export async function LocalCache(func : Function, cacheSeconds : number, description : string)
 {
-    let logMessage = "[LocalCacheAsync] ";
+    let additionalTime = "+" + Math.floor((performance.now() - globalTimestamp)*1000).toString().padStart(4," ") + "µs\t"
+    let logMessage =  additionalTime + "[LocalCacheAsync] ";
+    globalTimestamp = performance.now();
     let filename : string = generateFilename('async-' + description);
 
     let [cacheStatusOk,cacheAge] = cacheIsOk(filename,cacheSeconds);
@@ -19,7 +22,7 @@ export async function LocalCache(func : Function, cacheSeconds : number, descrip
     
     if(cacheStatusOk)
     {
-        logMessage += " 🟢 Found general request [" + description + "] in cache.";
+        logMessage += " 🟢 [" + description + "] in cache.";
         logMessage += "\t⏱️ Age is " + generateCacheAgeMessage(cacheAge)
         let responseAsString = fs.readFileSync(filename).toString();
 
@@ -61,7 +64,7 @@ export function LocalCacheSync(func : Function, cacheSeconds : number, descripti
 
     if(cacheStatusOk)
     {
-        logMessage += " 🟢 Found general request [" + description + "] in cache.";
+        logMessage += " 🟢 [" + description + "] in cache.";
         logMessage += "\t⏱️ Age is " + generateCacheAgeMessage(cacheAge)
         let responseAsString = fs.readFileSync(filename).toString();
 
