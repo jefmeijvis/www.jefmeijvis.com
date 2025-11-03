@@ -28,6 +28,8 @@
 		"bufferutil": "^4.0.9",
 		"front-matter": "^4.0.2",
 		"mathlifier": "^2.0.3",
+		"pino": "^10.1.0",
+		"pino-loki": "^2.6.0",
 		"svelte-check": "^4.3.1",
 		"svelte-markdown": "^0.4.1",
 		"utf-8-validate": "^6.0.5",
