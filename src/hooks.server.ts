@@ -8,7 +8,7 @@ export const handle: Handle = async ({ event, resolve }) => {
   logger.info({
     method: event.request.method,
     url: event.url.pathname,
-    ip: event.getClientAddress?.(),
+    ip: event.getClientAddress?.() || 'undefined',
     msg: 'Incoming request'
   })
 
