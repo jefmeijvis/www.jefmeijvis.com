@@ -1,11 +1,13 @@
 <script>
+    import { Themes } from "../../../constants";
+
 
     import { theme } from "../../../stores";
     /** @type {{children?: import('svelte').Snippet}} */
     let { children } = $props();
 
 </script>
-<blockquote class:light={$theme == 'light'} class:dark={$theme != 'light'}>
+<blockquote class:light={$theme == Themes.Light} class:dark={$theme != Themes.Light}>
     <p><b>Note</b></p>
     {@render children?.()}
 </blockquote>

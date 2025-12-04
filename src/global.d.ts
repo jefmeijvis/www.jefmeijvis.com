@@ -1,1 +1,3 @@
-type Theme = 'light' | 'dark';
+import type { Themes } from "./constants";
+
+type Theme = Themes.Light | Themes.Dark;
