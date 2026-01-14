@@ -45,6 +45,14 @@ In the following steps we're going to enroll an external API into API Management
 </policies>
 ```
 
+Now you can retreive your own Azure endpoint under the settings, which will be something like https://jefmeijivs.azure-api.net/ai or any other naming convention that you chose. 
+You can also enable the a subscription underneath the settings, allowing you to create your own API keys to be used with this service.
+Inside of APIM, all calls will be made with your original Groq key. 
+
+![Subscription [medium]](images/subscription.png)
+
+And that's about it. All your API calls can now be logged, monitored, rate limited and adjusted by routing them via APIM. 
+You can also set up different API keys for different applications etc.. 
 
 ## Read More
 
