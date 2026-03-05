@@ -63,6 +63,7 @@
         <div class="block">
             <ul>
                 <li><h3>Projects</h3></li>
+                <li><a href="https://peppol.jefmeijvis.com">Peppol XML Visualizer</a></li>
                 <li><a href="https://cornucopia.dotnetlab.eu">Cornucopia</a></li>
                 <li><a href="https://colour.jefmeijvis.com">Colour</a></li>
             </ul>
