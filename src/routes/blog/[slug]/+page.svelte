@@ -6,6 +6,7 @@
     import ViewOnGithub from "$lib/components/viewOnGithub.svelte";
     import { theme } from "../../../stores";
     import Sharing from "$lib/components/sharing.svelte";
+    import { BlogpostUtils } from "$lib/components/blog/utils";
 
     /** @type {{data: any}} */
     let { data } = $props();
@@ -14,6 +15,7 @@
 <div id="article">
     <MetaTagsBlogpost post={data.post}></MetaTagsBlogpost>
     <h1>{Text.desluggify(data.post.title)}</h1>
+    <p class="date">{BlogpostUtils.formatDateForCard(data.post.date)}</p>
     <img src='/content/{data.post.path}/images/cover-{$theme}.png' alt='Cover for {Text.desluggify(data.post.title)}'/>
     <Sharing post={data.post}></Sharing>
     <SvelteMarkdown source={data.post.markdown} renderers={renderers}/>
@@ -21,6 +23,11 @@
 </div>
 
 <style>
+    .date
+    {
+        opacity: 30%;
+    }
+
     img{
         margin: auto;
         width: 100%;
