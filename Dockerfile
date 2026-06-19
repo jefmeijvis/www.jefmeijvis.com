@@ -8,7 +8,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 RUN pnpm install --frozen-lockfile
 
 COPY . .
-RUN pnpm build
+RUN --mount=type=secret,id=app_env,target=/app/.env,required=false pnpm build
 
 FROM nginx:alpine AS runtime
 COPY --from=build /app/build /usr/share/nginx/html
