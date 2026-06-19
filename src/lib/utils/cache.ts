@@ -143,6 +143,7 @@ function getSecondsAge(input : Date) : number
 
 function generateFilename(input : string) : string
 {
+    fs.mkdirSync('cache', { recursive: true });
     return 'cache/' + input + '.cache';
 }
 
