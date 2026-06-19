@@ -37,12 +37,6 @@
     <a href="/blog">View all posts</a>
 </p>
 
-<div style="display:none" class="prerender-hack">
-    {#each data.blogposts as post}
-        <a  href="/blog/{post.path}">{post.title}</a>
-    {/each}
-</div>
-
 <style>
     p
     {

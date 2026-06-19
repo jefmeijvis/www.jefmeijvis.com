@@ -1,6 +1,5 @@
 import type { Blogpost } from "$lib/domain/blogpost/blogpost";
 import { getBlogposts } from "$lib/domain/blogpost/blogpostController";
-export const prerender = true
 
 // Header options
 const responseInit : ResponseInit =

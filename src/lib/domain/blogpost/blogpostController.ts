@@ -1,65 +1,139 @@
-import {type Blogpost} from "./blogpost";
-import fs from "fs"
+import type { Blogpost } from './blogpost';
+import fs from 'node:fs';
 import fm from 'front-matter';
-import { supabase } from "$lib/infrastructure/supabase";
-import { LocalCache } from "$lib/utils/cache";
+import { supabase } from '$lib/infrastructure/supabase';
 
-export async function getBlogposts() : Promise<Blogpost[]>
-{
-    let result = new Array<Blogpost>();
-    let dirs = getDirectories('./content');
+const VIEW_COUNT_TTL_MS = 24 * 60 * 60 * 1000;
 
-    for(let i = 0 ; i < dirs.length ; i++)
-    {
-        let dir = dirs[i];
-        let filepath = './content/' + dir + '/index.md';
-        let file = fs.readFileSync(filepath, 'utf8');
-        let parsed = fm(file);
-        let post = {} as Blogpost;
-        post.title = dir.slice(4);
-        post.markdown = parsed.body;
-        post.path = dir;
-        //@ts-ignore
-        post.id = Number.parseInt(dir.slice(0,3));
-        //@ts-ignore
-        post.date = parsed.attributes.date;
-        //@ts-ignore
-        post.published = parsed.attributes.published;
-        //@ts-ignore
-        post.description = parsed.attributes.description;
-        //@ts-ignore
-        post.category = parsed.attributes.category;
-        post.views = await LocalCache(()=>getViews('/blog/' + dir),3600,dir);
-        result.push(post);
+type ViewCountSnapshot = {
+    counts: Map<string, number>;
+    expiresAt: number;
+    updatedAt: number;
+};
+
+let blogpostMetadata: Blogpost[] | undefined;
+let viewCountSnapshot: ViewCountSnapshot | undefined;
+let viewCountRefresh: Promise<ViewCountSnapshot> | undefined;
+
+export async function getBlogposts(): Promise<Blogpost[]> {
+    const posts = getBlogpostMetadata();
+    const viewCounts = await getViewCounts(posts);
+
+    return posts.map((post) => ({
+        ...post,
+        views: viewCounts.get(post.path) ?? -1
+    }));
+}
+
+export async function getBlogpost(slug: string): Promise<Blogpost | undefined> {
+    const posts = await getBlogposts();
+    return posts.find((post) => post.path === slug);
+}
+
+export function getViewCountUpdatedAt(): Date {
+    return new Date(viewCountSnapshot?.updatedAt ?? Date.now());
+}
+
+function getBlogpostMetadata(): Blogpost[] {
+    if (blogpostMetadata) {
+        return blogpostMetadata;
     }
 
-    return result.filter(filterFunction).sort(sortingFunction);
+    blogpostMetadata = getDirectories('./content')
+        .map((directory) => readBlogpost(directory))
+        .filter((post) => post.published)
+        .sort((a, b) => ('' + b.date).localeCompare(a.date));
+
+    return blogpostMetadata;
 }
 
-// Only allow blogposts to where the 'published' flag is set to true
-function filterFunction(a : Blogpost) : boolean
-{
-    return a.published;
+function readBlogpost(directory: string): Blogpost {
+    const file = fs.readFileSync(`./content/${directory}/index.md`, 'utf8');
+    const parsed = fm<Record<string, unknown>>(file);
+    const attributes = parsed.attributes;
+
+    return {
+        title: directory.slice(4),
+        markdown: parsed.body,
+        path: directory,
+        id: Number.parseInt(directory.slice(0, 3)),
+        date: attributes.date as string,
+        published: attributes.published as boolean,
+        description: attributes.description as string,
+        category: attributes.category as string,
+        views: -1
+    };
 }
 
-// Sort all blogposts by descending date
-function sortingFunction(a : Blogpost, b : Blogpost) : number
-{
-    return ('' + b.date).localeCompare(a.date);
+function getDirectories(path: string): string[] {
+    return fs.readdirSync(path, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => entry.name);
 }
 
-function getDirectories(path : string) : string[]
-{
-    //console.log('📂 scanning ' + path + ' for directories')
-    return fs.readdirSync(path,{ withFileTypes: true })
-    .filter(x => x.isDirectory())
-    .map(dirent => dirent.name);
+async function getViewCounts(posts: Blogpost[]): Promise<Map<string, number>> {
+    if (viewCountSnapshot && viewCountSnapshot.expiresAt > Date.now()) {
+        return viewCountSnapshot.counts;
+    }
+
+    if (!viewCountRefresh) {
+        viewCountRefresh = refreshViewCounts(posts).finally(() => {
+            viewCountRefresh = undefined;
+        });
+    }
+
+    return (await viewCountRefresh).counts;
 }
 
-async function getViews(page : string) : Promise<number>
-{
-    if (!supabase) return -1;
+async function refreshViewCounts(posts: Blogpost[]): Promise<ViewCountSnapshot> {
+    const previousCounts = viewCountSnapshot?.counts;
+    const results = await Promise.allSettled(
+        posts.map((post) => getViews(`/blog/${post.path}`))
+    );
+    const counts = new Map<string, number>();
+    let failedRequests = 0;
 
-    let response = await supabase.from("website_visits").select('*',{count : "exact"}).like('host','www.jefmeijvis.com').ilike('page','%' + page + '%');
-    return response.count ?? -1
+    results.forEach((result, index) => {
+        const path = posts[index].path;
+
+        if (result.status === 'fulfilled') {
+            counts.set(path, result.value);
+            return;
+        }
+
+        failedRequests++;
+        counts.set(path, previousCounts?.get(path) ?? -1);
+    });
+
+    if (failedRequests > 0) {
+        console.warn(
+            `Failed to refresh ${failedRequests} view count(s); stale values will be used where available.`
+        );
+    }
+
+    viewCountSnapshot = {
+        counts,
+        expiresAt: Date.now() + VIEW_COUNT_TTL_MS,
+        updatedAt: Date.now()
+    };
+
+    return viewCountSnapshot;
+}
+
+async function getViews(page: string): Promise<number> {
+    if (!supabase) {
+        return -1;
+    }
+
+    const response = await supabase
+        .from('website_visits')
+        .select('*', { count: 'exact', head: true })
+        .eq('host', 'www.jefmeijvis.com')
+        .ilike('page', `%${page}%`);
+
+    if (response.error) {
+        throw response.error;
+    }
+
+    return response.count ?? -1;
 }

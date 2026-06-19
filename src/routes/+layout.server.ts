@@ -1,10 +1,14 @@
-import { getBlogposts } from "$lib/domain/blogpost/blogpostController";
-export const prerender = true;
+import {
+    getBlogposts,
+    getViewCountUpdatedAt
+} from "$lib/domain/blogpost/blogpostController";
 
 export async function load()
 {
+    const blogposts = await getBlogposts();
+
     return {
-        blogposts : await getBlogposts(),
-        timestamp : new Date(),
+        blogposts,
+        timestamp : getViewCountUpdatedAt(),
     }
 }

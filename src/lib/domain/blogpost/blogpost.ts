@@ -6,7 +6,6 @@ export type Blogpost =
     description : string,
     date : string,
     markdown : string,
-    attributes : any,
     category : string,
     views : number,
     published : boolean,

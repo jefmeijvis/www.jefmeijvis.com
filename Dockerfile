@@ -8,17 +8,22 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 RUN pnpm install --frozen-lockfile
 
 COPY . .
+RUN pnpm build
 
-ARG PRIVATE_SUPABASE_URL
-ARG PRIVATE_SUPABASE_KEY
-ARG VIEWCOUNT_CACHE_BUST
+FROM node:22-alpine AS runtime
+WORKDIR /app
+RUN corepack enable
 
-RUN echo "Refreshing view counts: $VIEWCOUNT_CACHE_BUST" && \
-    PRIVATE_SUPABASE_URL="$PRIVATE_SUPABASE_URL" \
-    PRIVATE_SUPABASE_KEY="$PRIVATE_SUPABASE_KEY" \
-    pnpm build
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=3000
 
-FROM nginx:alpine AS runtime
-COPY --from=build /app/build /usr/share/nginx/html
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+RUN pnpm install --prod --frozen-lockfile
 
-EXPOSE 80
+COPY --from=build /app/build ./build
+COPY --from=build /app/content ./content
+
+EXPOSE 3000
+
+CMD ["node", "build"]
