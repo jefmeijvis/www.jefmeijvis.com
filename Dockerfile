@@ -21,7 +21,6 @@ RUN corepack enable
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 RUN pnpm install --prod --frozen-lockfile
 COPY --from=build /app/build ./build
-COPY scripts ./scripts
 
 EXPOSE 3000
 CMD ["node", "build"]
