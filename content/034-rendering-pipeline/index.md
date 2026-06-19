@@ -6,7 +6,7 @@ title: Rendering pipelines
 date: 20260218
 description : Chaining Sketchup, Twinmotion and ChatGPT to achieve a realistic rendering look.  
 category : Rendering
-published : false
+published : true
 ---
 # Creating a realistic render
 Let's try to create a realistic render result by chaining a few tools together!
