@@ -41,6 +41,12 @@ The result can be seen below.
 And that's it! 
 By combining a couple of blocks stacked together, together with some included twinmotion models, we're able to generate a realistic looking scene!
 
+## A more detailed example
+The 3-tier method demonstrated above was used to generate a more eleborate example, including more details.
+![Step 1: Low fidelity](images/street-stage-1.png)
+![Step 2: Details and textures](images/street-stage-2.png)
+![Step 3: Using AI](images/street-stage-3.png)
+
 ## Read More
 
 - [sketchup.trimble.com](https://sketchup.trimble.com/)
