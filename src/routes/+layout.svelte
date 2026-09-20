@@ -3,10 +3,8 @@
     import Footer from "$lib/components/footer.svelte";
     import MetaTags from "$lib/components/metaTags.svelte";
     import Navbar from "$lib/components/navigation/navbar.svelte";
-    import { onMount } from "svelte";
+    import { onMount, untrack } from "svelte";
     import { createTheme, persistTheme } from "../stores";
-
-
 
     interface Props {
         data: any;
@@ -15,7 +13,7 @@
 
     let { data, children }: Props = $props();
 
-    const theme = createTheme(data.theme);
+    const theme = createTheme(untrack(() => data.theme));
     onMount(() => persistTheme(theme, data.hasThemeCookie));
 </script>
 
