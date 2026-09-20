@@ -4,8 +4,7 @@
 </script>
 
 <table>
-    {#if children}{@render children()}{:else}
-    {/if}
+    {@render children?.()}
 </table>
 
 

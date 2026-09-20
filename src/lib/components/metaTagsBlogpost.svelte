@@ -7,7 +7,7 @@
     }
 
     let { post }: Props = $props();
-    let title = Text.desluggify(post.title) + ' - Jef Meijvis';
+    let title = $derived(Text.desluggify(post.title) + ' - Jef Meijvis');
 </script>
 
 <svelte:head>

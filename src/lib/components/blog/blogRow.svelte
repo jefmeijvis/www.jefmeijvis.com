@@ -117,10 +117,5 @@
         display: flex;
     }
 
-    @media (max-aspect-ratio: 1/1) 
-    {
-        .big-button
-        {
-        }
-    }
+
 </style>

@@ -7,14 +7,10 @@
 
   let { href = '', title = "", children }: Props = $props();
 
-    let target : string = $state("_blank");
-
-
-    if(href.includes('www.jefmeijvis.com') || href.includes('localhost:'))
-      target = '_self';
-
-    if(href.startsWith('/') || href.includes('#'))
-      target = '_self';
+    let target = $derived(
+      href.includes('www.jefmeijvis.com') || href.includes('localhost:') ||
+      href.startsWith('/') || href.includes('#') ? '_self' : '_blank'
+    );
 
   </script>
   

@@ -1,5 +1,8 @@
 <script lang="ts">
-    import type { Tag } from "./tags";
+    interface Tag {
+        name: string;
+        color: string;
+    }
 
     interface Props {
         tag: Tag;

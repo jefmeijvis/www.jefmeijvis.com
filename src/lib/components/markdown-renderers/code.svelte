@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { run } from 'svelte/legacy';
 
     import { codeToHtml} from 'shiki'
     import { getTheme } from '../../../stores';
@@ -13,8 +12,10 @@
 
   let { lang = "svelte", text }: Props = $props();
 
-    let themeOption : string = $state();
-    let options : any = $state();
+    let options = $derived({
+      lang,
+      theme: $theme == 'light' ? 'github-light' : 'github-dark'
+    });
     let copied : boolean = $state(false)
 
     function formatLanguage(input : string) : string
@@ -45,14 +46,7 @@
       setTimeout(() => {copied = false}, 1000);
     }
 
-    run(() => {
-      themeOption = $theme == 'light' ? "github-light" : "github-dark";
-      options = 
-      {
-          lang: lang,
-          theme: themeOption
-      }
-    });
+
 
 </script>
 

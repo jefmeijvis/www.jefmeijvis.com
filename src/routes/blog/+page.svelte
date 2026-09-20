@@ -10,14 +10,13 @@
     let { data }: Props = $props();
 
     let days = getDaysSince('10/16/2021');
-    let daysBetween = Math.floor(days / data.blogposts.length);
+    let daysBetween = $derived(Math.floor(days / data.blogposts.length));
     let listview : boolean = $state(false);
-    let searchString : string = $state();
+    let searchString : string = $state('');
 
     function changeSearchString(event : Event)
     {
-        //@ts-ignore
-        searchString = event.target.value as String;
+        searchString = (event.target as HTMLInputElement).value;
     }
 
     function toggleListView(value : boolean)

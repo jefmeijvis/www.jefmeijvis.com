@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { run } from 'svelte/legacy';
-
     import type { Blogpost } from "$lib/domain/blogpost/blogpost";
     import { filterPost } from "$lib/domain/blogpost/filter";
     import { sortByIdDescending, type SortingFunction } from "$lib/domain/blogpost/sorting";
@@ -23,20 +21,14 @@
         searchString = undefined
     }: Props = $props();
 
-    let innerHeight : number = $state();
-    let innerWidth : number = $state();
-    let mobile : boolean;
-    let visiblePosts : Blogpost[] = $state();
-
-    visiblePosts = posts.sort(sorting);
-    visiblePosts = visiblePosts.filter((post : Blogpost) => filterPost(post,searchString));
-    visiblePosts = visiblePosts.slice(0,limit)
-
-    run(() => {
-        visiblePosts = posts.sort(sorting);
-        visiblePosts = visiblePosts.filter((post : Blogpost) => filterPost(post,searchString));
-        visiblePosts = visiblePosts.slice(0,limit)
-    });
+    let innerHeight = $state(0);
+    let innerWidth = $state(0);
+    let mobile = $derived(innerWidth > 0 && innerWidth <= innerHeight);
+    let visiblePosts = $derived(
+        [...posts].sort(sorting)
+            .filter((post) => filterPost(post, searchString))
+            .slice(0, limit)
+    );
 </script>
 
 {#if searchString}

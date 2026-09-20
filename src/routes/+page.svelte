@@ -10,12 +10,11 @@
     let { data }: Props = $props();
 
     let listview : boolean = $state(false);
-    let searchString : string = $state();
+    let searchString : string = $state('');
 
     function changeSearchString(event : Event)
     {
-        //@ts-ignore
-        searchString = event.target.value as String;
+        searchString = (event.target as HTMLInputElement).value;
     }
 
     function toggleListView(value : boolean)
