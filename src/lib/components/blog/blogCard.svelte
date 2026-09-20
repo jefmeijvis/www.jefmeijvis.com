@@ -1,7 +1,8 @@
 <script lang="ts">
     import { BlogpostUtils } from "./utils";
     import type { Blogpost } from "$lib/domain/blogpost/blogpost";
-    import { theme } from "../../../stores";
+    import { getTheme } from "../../../stores";
+    const theme = getTheme();
     import { Text } from "$lib/utils/text";
     import { goto } from "$app/navigation";
 

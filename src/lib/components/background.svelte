@@ -1,27 +1,19 @@
 <script lang="ts">
-    import { theme } from "../../stores";
-    let y : number = $state(0);
-
-    function getTransform(input : number)
-    {
-        return 'rotate(180deg) translate(0,' + input + 'px)'
-    }
-
+    import { getTheme } from "../../stores";
+    const theme = getTheme();
     let keywords : string[] = ["CyberSecurity" , "Azure" , "Frontend" , "Svelte" , "Cloud Native" , "Software","CyberSecurity" , "Azure" , "Frontend" , "Svelte" , "Cloud Native" , "Software"]
 </script>
 
-<div class="background-effect">
-<p style="transform:{getTransform(y)};opacity:{$theme == 'dark' ? '5%' : '6%'}">
+<div class="background-effect" aria-hidden="true">
+<p style="opacity:{$theme == 'dark' ? '5%' : '6%'}">
    {keywords.join(' // ')}
 </p>
 </div>
 
-<svelte:window bind:scrollY={y} />
-
 <style>
     .background-effect
     {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         right:0;
@@ -37,6 +29,7 @@
         display: block;
         position: absolute;
         right : 0;
+        transform: rotate(180deg);
         writing-mode: tb-rl;
         font-size: 7rem;
         text-wrap: nowrap;

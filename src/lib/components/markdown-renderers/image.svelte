@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { theme } from "../../../stores";
+    import { getTheme } from "../../../stores";
+    const theme = getTheme();
 
   interface Props {
     href?: string;

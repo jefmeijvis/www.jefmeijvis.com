@@ -2,7 +2,8 @@
   import { run } from 'svelte/legacy';
 
     import { codeToHtml} from 'shiki'
-    import { theme } from '../../../stores';
+    import { getTheme } from '../../../stores';
+    const theme = getTheme();
     import { fade, fly } from 'svelte/transition';
 
   interface Props {

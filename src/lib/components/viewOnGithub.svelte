@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { theme } from "../../stores";
+    import { getTheme } from "../../stores";
+    const theme = getTheme();
 
     interface Props {
         url: string;

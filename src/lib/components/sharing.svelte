@@ -2,7 +2,8 @@
     import type { Blogpost } from "$lib/domain/blogpost/blogpost";
     import { Text } from "$lib/utils/text";
     import { fade } from "svelte/transition";
-    import { theme } from "../../stores";
+    import { getTheme } from "../../stores";
+    const theme = getTheme();
 
     interface Props {
         post: Blogpost;

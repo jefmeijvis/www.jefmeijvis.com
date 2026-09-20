@@ -1,6 +1,7 @@
 <script lang="ts">
     import { fade } from "svelte/transition";
-    import { theme } from "../../../stores";
+    import { getTheme } from "../../../stores";
+    const theme = getTheme();
     import type { MouseEventHandler } from "svelte/elements";
 
     interface Props {

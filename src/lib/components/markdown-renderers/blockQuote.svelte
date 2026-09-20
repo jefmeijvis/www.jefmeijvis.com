@@ -2,7 +2,8 @@
     import { Themes } from "../../../constants";
 
 
-    import { theme } from "../../../stores";
+    import { getTheme } from "../../../stores";
+    const theme = getTheme();
     /** @type {{children?: import('svelte').Snippet}} */
     let { children } = $props();
 

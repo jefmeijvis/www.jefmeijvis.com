@@ -4,7 +4,8 @@
     import renderers from '$lib/components/markdown-renderers/renderers'
     import MetaTagsBlogpost from "$lib/components/metaTagsBlogpost.svelte";
     import ViewOnGithub from "$lib/components/viewOnGithub.svelte";
-    import { theme } from "../../../stores";
+    import { getTheme } from "../../../stores";
+    const theme = getTheme();
     import Sharing from "$lib/components/sharing.svelte";
     import { BlogpostUtils } from "$lib/components/blog/utils";
 

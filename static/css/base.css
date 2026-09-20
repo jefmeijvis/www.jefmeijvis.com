@@ -35,6 +35,7 @@ html
 
 body
 {
+  position: relative;
   background-color: var(--color-background);
   color: var(--color-text);
   transition: background-color ease 0.5s;

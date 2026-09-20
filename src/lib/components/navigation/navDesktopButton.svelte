@@ -1,5 +1,6 @@
 <script>
-    import { theme } from "../../../stores";
+    import { getTheme } from "../../../stores";
+    const theme = getTheme();
 
 </script>
 

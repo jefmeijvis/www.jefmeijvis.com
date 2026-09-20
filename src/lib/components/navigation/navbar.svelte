@@ -8,7 +8,8 @@
     import type { Link } from "./link";
     import NavMobileHamburger from "./navMobileHamburger.svelte";
     import NavMobileButton from "./navMobileButton.svelte";
-    import { theme } from "../../../stores";
+    import { getTheme } from "../../../stores";
+    const theme = getTheme();
     let menuOpen : boolean = $state(false);
 
     let links : Link[] = [];

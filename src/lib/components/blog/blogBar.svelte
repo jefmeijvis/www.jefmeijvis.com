@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { ChangeEventHandler } from "svelte/elements";
-    import { theme } from "../../../stores";
+    import { getTheme } from "../../../stores";
+    const theme = getTheme();
 
     interface Props {
         toggleView: Function;
