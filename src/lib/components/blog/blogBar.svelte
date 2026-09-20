@@ -4,12 +4,11 @@
     const theme = getTheme();
 
     interface Props {
-        toggleView: Function;
         title?: string;
         updateSearchString: ChangeEventHandler<HTMLElement>;
     }
 
-    let { toggleView, title = "Articles", updateSearchString }: Props = $props();
+    let { title = "Articles", updateSearchString }: Props = $props();
 
 
 </script>
@@ -28,14 +27,6 @@
             <img style="filter:{$theme == 'light' ? 'none' : 'invert()'}" class="search-image" alt="magnifying glass" src="/icons/search.png"/>
         </div>
 
-
-        <button data-umami-event="button-searchbar-grid" onclick={()=>toggleView(false)}>
-            <img style="filter:{$theme == 'light' ? 'none' : 'invert()'}" alt="grid" src="/icons/grid.png"/>
-        </button>
-
-        <button data-umami-event="button-searchbar-list" onclick={()=>toggleView(true)}>
-            <img style="filter:{$theme == 'light' ? 'none' : 'invert()'}" alt="list" src="/icons/list.png"/>
-        </button>
     </div>
 </div>
 
@@ -97,22 +88,6 @@
         width : 1.2rem;
         filter:invert()
     }
-    button
-    {
-        background: none;
-        border:none;
-        cursor:pointer;
-        opacity: 70%;
-        margin-left: 1rem;
-        padding-top: .2rem;
-        transition: all ease .1s;
-    }
-
-    button:hover
-    {
-        opacity: 100%;
-        filter: drop-shadow(0px 0px 3px #ffffff7d);
-    }
 
     @media (max-aspect-ratio: 1/1) 
     {
@@ -141,9 +116,5 @@
             justify-content: center;
         }
 
-        button
-        {
-            display: none;
-        }
     }
 </style>

@@ -11,7 +11,6 @@
 
     let days = getDaysSince('10/16/2021');
     let daysBetween = $derived(Math.floor(days / data.blogposts.length));
-    let listview : boolean = $state(false);
     let searchString : string = $state('');
 
     function changeSearchString(event : Event)
@@ -19,10 +18,6 @@
         searchString = (event.target as HTMLInputElement).value;
     }
 
-    function toggleListView(value : boolean)
-    {
-        listview = value;
-    }
 </script>
 
 <svelte:head>
@@ -36,5 +31,5 @@
     So far I have written {data.blogposts.length} posts. 
     That means that on average, I write a post every {daysBetween} days! 
 </p>
-<BlogBar updateSearchString={changeSearchString} toggleView={toggleListView}></BlogBar>
-<BlogContainer searchString={searchString} viewToggle={listview} posts={data.blogposts}></BlogContainer>
+<BlogBar updateSearchString={changeSearchString}></BlogBar>
+<BlogContainer searchString={searchString} posts={data.blogposts}></BlogContainer>

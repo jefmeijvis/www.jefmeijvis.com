@@ -4,7 +4,6 @@
     import { getTheme } from "../../../stores";
     const theme = getTheme();
     import { Text } from "$lib/utils/text";
-    import { goto } from "$app/navigation";
 
     interface Props {
         post: Blogpost;
@@ -13,14 +12,9 @@
 
     let { post, index }: Props = $props();
 
-    function click()
-    {
-        goto('/blog/' + post.path)
-    }
 </script>
 
-
-<div tabindex="{index}" onkeypress={click} role="button" onclick={click} class="big-button">
+<a href="/blog/{post.path}" class="big-button">
     <div class="top">
         <div class="top-left">
             <p class="date">{BlogpostUtils.formatDateForCard(post.date)}</p>
@@ -35,12 +29,10 @@
             <span class="id">#{post.id}</span>
             <span>//</span>
             <span class="category">{Text.capitalize(post.category)}</span>
-            <span>//</span>
-            <span class="viewcount">{Text.formatViewCount(post.views)} views</span>
         </p>
         <p class="description">{post.description}</p>
     </div>
-</div>
+</a>
 
 <style>
     .details
@@ -109,7 +101,7 @@
     .big-button
     {
         background: none;
-        border: none;
+        text-decoration: none;
         width : 30%;
         cursor:pointer;
         margin-bottom: 4rem;

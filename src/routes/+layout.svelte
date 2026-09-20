@@ -3,7 +3,7 @@
     import Footer from "$lib/components/footer.svelte";
     import MetaTags from "$lib/components/metaTags.svelte";
     import Navbar from "$lib/components/navigation/navbar.svelte";
-    import { onMount, untrack } from "svelte";
+    import { onMount } from "svelte";
     import { createTheme, persistTheme } from "../stores";
 
     interface Props {
@@ -13,13 +13,9 @@
 
     let { data, children }: Props = $props();
 
-    const theme = createTheme(untrack(() => data.theme));
-    onMount(() => persistTheme(theme, data.hasThemeCookie));
+    const theme = createTheme('light');
+    onMount(() => persistTheme(theme));
 </script>
-
-<svelte:head>
-    <link rel="stylesheet" href="/css/{$theme}-theme.css" />
-</svelte:head>
 
 <MetaTags></MetaTags>
 <Navbar></Navbar>
@@ -27,7 +23,7 @@
 <div id="page-container" class="page-container">
     {@render children?.()}
 </div>
-<Footer timestamp={data.timestamp} blogposts={data.blogposts}></Footer>
+<Footer blogposts={data.recentPosts}></Footer>
 
 <style>
     .page-container

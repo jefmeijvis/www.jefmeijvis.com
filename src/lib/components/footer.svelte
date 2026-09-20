@@ -1,42 +1,12 @@
 <script lang="ts">
-    import type { Blogpost } from "$lib/domain/blogpost/blogpost";
-    import { getHoursSince } from "$lib/utils/date";
+    import type { BlogpostSummary } from "$lib/domain/blogpost/blogpost";
     import { Text } from "$lib/utils/text";
-    import { onMount } from "svelte";
 
     interface Props {
-        blogposts: Blogpost[];
-        timestamp: Date;
-        timeAgo?: string;
+        blogposts: BlogpostSummary[];
     }
 
-    let { blogposts, timestamp, timeAgo = $bindable('') }: Props = $props();
-
-    function getCurrentDate() : string
-    {
-        return timestamp.toUTCString() 
-    }
-
-    function doOnMount()
-    {
-        let hours : number =  getHoursSince(timestamp);
-
-        if(hours < 1)
-        {
-            let minutes = Math.ceil(hours * 60);
-            timeAgo = ', which was ' + minutes + ' minutes ago'
-        }
-        else if(hours > 1 && hours < 2)
-        {
-            timeAgo = ', which was 1 hour ago'
-        }
-        else
-        {
-            timeAgo = ', which was ' + Math.ceil(hours) + ' hours ago'
-        }
-    }
-
-    onMount(doOnMount)
+    let { blogposts }: Props = $props();
 </script>
 
 
@@ -83,8 +53,6 @@
     </div>
     <p>© Jef Meijvis 2021 - {new Date().getFullYear()}</p>
     <p><a target="_blank" href="https://github.com/jefmeijvis/www.jefmeijvis.com">Source code on GitHub</a></p>
-    <p>Views and other metrics are updated daily</p>
-    <p>Last update was {getCurrentDate()}{timeAgo}</p>
 </footer>
 
 

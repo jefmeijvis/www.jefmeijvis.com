@@ -1,12 +1,13 @@
-export type Blogpost =
-{ 
-    id : number,
-    title : string,
-    path : string,
-    description : string,
-    date : string,
-    markdown : string,
-    category : string,
-    views : number,
-    published : boolean,
-}
+export type BlogpostSummary = {
+    id: number;
+    title: string;
+    path: string;
+    description: string;
+    date: string;
+    category: string;
+    published: boolean;
+};
+
+export type Blogpost = BlogpostSummary & {
+    html: string;
+};

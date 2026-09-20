@@ -3,11 +3,9 @@
     import { filterPost } from "$lib/domain/blogpost/filter";
     import { sortByIdDescending, type SortingFunction } from "$lib/domain/blogpost/sorting";
     import BlogCard from "./blogCard.svelte";
-    import BlogRow from "./blogRow.svelte";
 
     interface Props {
         posts?: Blogpost[];
-        viewToggle?: boolean;
         sorting?: SortingFunction;
         limit?: number | undefined;
         searchString?: string | undefined;
@@ -15,7 +13,6 @@
 
     let {
         posts = [],
-        viewToggle = false,
         sorting = sortByIdDescending,
         limit = undefined,
         searchString = undefined
@@ -41,11 +38,7 @@
 {#key searchString} 
     <div>
         {#each visiblePosts as post,index}
-            {#if (viewToggle && !mobile)}
-                <BlogRow {index} {post}></BlogRow>
-            {:else}
-                <BlogCard {index} {post}></BlogCard>
-            {/if}
+            <BlogCard {index} {post}></BlogCard>
         {/each}
     </div>
 {/key}

@@ -6,18 +6,24 @@ This repository hosts my personal blogging site over at [jefmeijvis.com](https:/
 
 # ⚙️ Tech stack
 
-The website is build using [Sveltekit](https://kit.svelte.dev/).
-All content is written in markdown, with the images stored in a folder next to each *index.md* file.
-The following node packages are essential to the current setup:
+The website is built with [SvelteKit](https://kit.svelte.dev/) and generated as a static site.
+Content lives in `content/<post>/index.md`, with each post's images beside it. During a build:
 
-- [svelte-markdown](https://www.npmjs.com/package/svelte-markdown) as a markdown parser for Svelte, which allows me to express each different type of markdown syntax as a distinct Svelte component. You can view these over at [/src/lib/components/markdown-renderers](https://github.com/jefmeijvis/www.jefmeijvis.com/tree/master/src/lib/components/markdown-renderers).
-- [front-matter](https://www.npmjs.com/package/front-matter) to extract metadata from markdown files.
-- [shiki](https://github.com/shikijs/shiki) as syntax highlighter for code blocks.
-- [mathlifier](https://www.npmjs.com/package/mathlifier) to render LaTeX math equations into HTML.
+- `front-matter` reads post metadata.
+- `marked` converts trusted Markdown to HTML.
+- `shiki` highlights code and `mathlifier` renders maths at build time.
+- SvelteKit prerenders pages and RSS into `build/`.
+
+The resulting site needs no database, Node.js server, or runtime Markdown processing. The included Docker image serves `build/` with Nginx.
+
+## Commands
+
+- `pnpm dev` starts local development.
+- `pnpm check` runs Svelte and TypeScript checks.
+- `pnpm test:smoke` builds the complete site and verifies all generated pages.
 
 # 💻 Contributing
 
 Feel free to open an issue or submit a PR if you feel like something needs to be different!
 All the content is written in markdown and is stored in this repository under [/content](https://github.com/jefmeijvis/www.jefmeijvis.com/tree/master/content)
-
 

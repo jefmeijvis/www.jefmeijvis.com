@@ -1,5 +1,7 @@
-import { getBlogpost } from "$lib/domain/blogpost/blogpostController";
+import { getBlogpost, getBlogposts } from "$lib/domain/blogpost/blogpostController";
 import { error } from "@sveltejs/kit";
+
+export const entries = () => getBlogposts().map((post) => ({ slug: post.path }));
 
 export async function load({ params }) {
     const post = await getBlogpost(params.slug);

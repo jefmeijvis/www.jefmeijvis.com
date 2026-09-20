@@ -13,22 +13,19 @@ export function getTheme() {
   return getContext<Writable<string>>(themeContext)
 }
 
-export function persistTheme(theme: Writable<string>, hasThemeCookie: boolean) {
-  // Migrate preferences saved before the server-readable cookie was introduced.
-  if (!hasThemeCookie) {
-    try {
-      const savedTheme = localStorage.getItem("theme")
-      if (savedTheme === Themes.Dark || savedTheme === Themes.Light) theme.set(savedTheme)
-    } catch {
-      // Storage is optional; the server's default remains usable.
-    }
+export function persistTheme(theme: Writable<string>) {
+  try {
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme === Themes.Dark || savedTheme === Themes.Light) theme.set(savedTheme)
+  } catch {
+    // Storage is optional; the default remains usable.
   }
 
   return theme.subscribe((value) => {
     try {
-      document.cookie = `theme=${value}; Path=/; Max-Age=31536000; SameSite=Lax${location.protocol === "https:" ? "; Secure" : ""}`
+      document.documentElement.dataset.theme = value
     } catch {
-      // Theme switching also works when persistence is blocked.
+      // Theme switching also works when document access is blocked.
     }
     try {
       localStorage.setItem("theme", value)

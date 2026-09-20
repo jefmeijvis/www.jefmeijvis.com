@@ -2,7 +2,7 @@
 
 FROM node:22-alpine AS build
 WORKDIR /app
-RUN apk add --no-cache git && corepack enable
+RUN corepack enable
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 RUN pnpm install --frozen-lockfile
@@ -10,20 +10,8 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm build
 
-FROM node:22-alpine AS runtime
-WORKDIR /app
-RUN corepack enable
-
-ENV NODE_ENV=production
-ENV HOST=0.0.0.0
-ENV PORT=3000
-
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
-RUN pnpm install --prod --frozen-lockfile --ignore-scripts
-
-COPY --from=build /app/build ./build
-COPY --from=build /app/content ./content
+FROM nginx:1.27-alpine AS runtime
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/build /usr/share/nginx/html
 
 EXPOSE 3000
-
-CMD ["node", "build"]

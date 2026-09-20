@@ -2,14 +2,12 @@
     import BlogBar from "$lib/components/blog/blogBar.svelte";
     import BlogContainer from "$lib/components/blog/blogContainer.svelte"
     import Introduction from "$lib/components/introduction.svelte";
-    import { sortByViewsDescending } from "$lib/domain/blogpost/sorting.js";
     interface Props {
         data: any;
     }
 
     let { data }: Props = $props();
 
-    let listview : boolean = $state(false);
     let searchString : string = $state('');
 
     function changeSearchString(event : Event)
@@ -17,10 +15,6 @@
         searchString = (event.target as HTMLInputElement).value;
     }
 
-    function toggleListView(value : boolean)
-    {
-        listview = value;
-    }
 </script>
 
 <svelte:head>
@@ -28,10 +22,10 @@
 </svelte:head>
 
 <Introduction></Introduction>
-<h1>Most viewed articles</h1>
-<BlogContainer sorting={sortByViewsDescending} limit={3} posts={data.blogposts}></BlogContainer>
-<BlogBar updateSearchString={changeSearchString} title="Most recent articles" toggleView={toggleListView}></BlogBar>
-<BlogContainer searchString={searchString} limit={9} viewToggle={listview} posts={data.blogposts}></BlogContainer>
+<h1>Latest articles</h1>
+<BlogContainer limit={3} posts={data.blogposts}></BlogContainer>
+<BlogBar updateSearchString={changeSearchString} title="Most recent articles"></BlogBar>
+<BlogContainer searchString={searchString} limit={9} posts={data.blogposts}></BlogContainer>
 <p>
     <a href="/blog">View all posts</a>
 </p>

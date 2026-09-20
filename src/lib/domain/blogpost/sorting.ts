@@ -14,8 +14,3 @@ export function sortByIdDescending(a : Blogpost, b : Blogpost)
     return b.id - a.id;
 }
 
-export function sortByViewsDescending(a : Blogpost, b : Blogpost)
-{
-    return b.views - a.views;
-}
-
