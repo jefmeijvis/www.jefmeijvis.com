@@ -17,7 +17,7 @@ const responseInit : ResponseInit =
 
 export async function GET() 
 {
-  const items = getBlogposts().map((post) => `
+  const items = (await getBlogposts()).map((post) => `
     <item>
       <title>${escapeXml(post.title)}</title>
       <link>${linkFor(post)}</link>

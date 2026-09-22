@@ -1,3 +1,3 @@
 import { getBlogposts } from '$lib/domain/blogpost/blogpostController';
 
-export const load = () => ({ blogposts: getBlogposts() });
+export const load = async () => ({ blogposts: await getBlogposts() });

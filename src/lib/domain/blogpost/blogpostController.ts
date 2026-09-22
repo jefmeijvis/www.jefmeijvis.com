@@ -2,17 +2,22 @@ import type { Blogpost, BlogpostSummary } from './blogpost';
 import fs from 'node:fs';
 import fm from 'front-matter';
 import { renderMarkdown } from '$lib/server/markdown';
+import { getPageviews, pageKey } from '$lib/server/pageviews';
 
 type BlogpostSource = BlogpostSummary & { markdown: string };
 
 let blogpostSources: BlogpostSource[] | undefined;
 
-export function getBlogposts(): BlogpostSummary[] {
-    return getBlogpostSources().map(({ markdown: _markdown, ...post }) => post);
+export async function getBlogposts(): Promise<BlogpostSummary[]> {
+    const counts = await getPageviews();
+    return getBlogpostSources().map(({ markdown: _markdown, ...post }) => ({
+        ...post,
+        views: counts ? counts.get(pageKey('/blog/' + post.path)) ?? 0 : undefined
+    }));
 }
 
-export function getRecentBlogposts(limit = 5): BlogpostSummary[] {
-    return getBlogposts().slice(0, limit);
+export async function getRecentBlogposts(limit = 5): Promise<BlogpostSummary[]> {
+    return (await getBlogposts()).slice(0, limit);
 }
 
 export async function getBlogpost(slug: string): Promise<Blogpost | undefined> {

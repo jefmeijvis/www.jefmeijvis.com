@@ -29,6 +29,10 @@
             <span class="id">#{post.id}</span>
             <span>//</span>
             <span class="category">{Text.capitalize(post.category)}</span>
+            {#if post.views !== undefined}
+                <span>//</span>
+                <span class="viewcount">{Text.formatViewCount(post.views)} views</span>
+            {/if}
         </p>
         <p class="description">{post.description}</p>
     </div>
